@@ -1,0 +1,256 @@
+//@import 'bootstrap.min.css';
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, img, abbr, acronym, address, big, cite, code, hr, del, dfn, font, ins, kbd, q, s, samp, small, strike, tt, var, center,  dl, dt, dd, ol, ul, li, fieldset, form, label, legend, select, input, button, textarea, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; outline: 0; vertical-align: baseline; text-decoration:none; outline: 0; }
+h1, h2, h3, h4, h5, h6 { font-weight: normal; }
+li { list-style: none; }
+em { text-decoration: italic; }
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+/* MIXIN */
+@mixin gradiente3($angulo,$opacity,$grad1, $grad2, $grad3) {
+	$angulo: $angulo+deg;
+	background: $grad1; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient($angulo ,rgba($grad1, $opacity), rgba($grad2, $opacity), rgba($grad3, $opacity)); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient($angulo ,rgba($grad1, $opacity), rgba($grad2, $opacity), rgba($grad3, $opacity)); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient($angulo ,rgba($grad1, $opacity), rgba($grad2, $opacity), rgba($grad3, $opacity)); /* For Firefox 3.6 to 15 */
+	background: linear-gradient($angulo ,rgba($grad1, $opacity), rgba($grad2, $opacity), rgba($grad3, $opacity)); /* Standard syntax */
+}
+
+@mixin gradiente2($angulo,$opacity,$grad1, $grad2) {
+	$angulo: $angulo+deg;
+	background: $grad1; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient($angulo ,rgba($grad1, $opacity), rgba($grad2, $opacity)); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient($angulo ,rgba($grad1, $opacity), rgba($grad2, $opacity)); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient($angulo ,rgba($grad1, $opacity), rgba($grad2, $opacity)); /* For Firefox 3.6 to 15 */
+	background: linear-gradient($angulo ,rgba($grad1, $opacity), rgba($grad2, $opacity)); /* Standard syntax */
+}
+
+@mixin background-size($value) {
+	-webkit-background-size: $value;
+	-moz-background-size: $value;
+	-o-background-size: $value;
+	background-size: $value;
+}
+
+@mixin rotacao($value) {
+	@if $value == '' {
+		$value: -45deg;
+	}@else{
+		$value: $value+deg;
+	}
+
+	-webkit-transform: rotate($value);
+	-moz-transform: rotate($value);
+	-o-transform: rotate($value);
+	-ms-transform: rotate($value);
+	transform: rotate($value);
+}
+
+@mixin scale() {
+	$value: 1.2;
+	-webkit-transform: scale($value);
+	-moz-transform: scale($value);
+	-o-transform: scale($value);
+	-ms-transform: scale($value);
+	transform: scale($value);
+}
+
+@mixin scale-rotate() {
+	$scale: 1.2;
+	$rotate: -5deg;
+	-webkit-transform: scale($scale) rotate($rotate);
+	-moz-transform: scale($scale) rotate($rotate);
+	-o-transform: scale($scale) rotate($rotate);
+	-ms-transform: scale($scale) rotate($rotate);
+	transform: scale($scale) rotate($rotate);
+}
+
+@mixin box-sizing() {
+	$value: border-box;
+	-webkit-box-sizing: $value;
+	-moz-box-sizing: $value;
+	box-sizing: $value;
+}
+
+@mixin animacao($value1,$value2) {
+	@if $value1 == '' { $value1: 0.2; }
+	@if $value2 == '' { $value2: 0; }
+	$valueIni: $value1+s;
+	$valueEnd: $value2+s;
+	-moz-transition: all $valueIni ease $valueEnd;
+	-webkit-transition: all $valueIni ease $valueEnd;
+	-o-transition: all $valueIni ease $valueEnd;
+}
+
+@mixin animacao-off() {
+	-moz-transition: none;
+	-webkit-transition: none;
+	-o-transition: none;
+}
+
+@mixin clear() {
+	clear: both;
+
+    &:before, &:after {
+        display: table;
+        content: ''; 
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+/* VARIAVEIS */ 
+$width: 1250px;
+$font-family: 'Work Sans', sans-serif;
+
+$cor-txt: #231f20;
+$font-size: 1.5rem;
+$cor1: #7c2464;
+
+$light: 300;
+$regular: 500;
+$bold: 700;
+
+/* FONTS */
+@import url('https://fonts.googleapis.com/css?family=Work+Sans');
+@import 'fontawesome/font-awesome';
+
+html {
+	font-size: 100%; 
+}
+
+body {
+	&.front{
+		background-color: #eef8fd;
+	}
+
+	&.page {
+		background-color: #ffffff;
+	}
+}
+
+body * {
+	font-family: $font-family;
+	color: $cor-txt;
+	font-weight: $regular;
+}
+
+.container {
+	max-width: $width; 
+	width: 100%;
+	padding: 0 80px;
+	margin: 0 auto;
+	position: relative;
+	@include box-sizing();
+	@include clear();
+
+	@media all and (max-width: 600px) {
+		padding: 0 40px;
+	}
+
+	@media all and (max-width: 400px) {
+		padding: 0 20px;
+	}
+
+	.container {
+		padding: 0px!important;
+		max-width: 100%!important; 
+		width: 100%!important;
+	}
+}
+
+.row {
+	margin-right: -15px;
+	margin-left: -15px;
+	display: block;
+	@include clear();
+
+	[class*="col-"] {
+		float: left;
+		padding-right: 15px;
+		padding-left: 15px;
+		@include box-sizing();
+
+		img {
+			max-width: 100%;
+		}
+	}
+
+
+	@for $i from 1 through 12 {
+		.col-#{$i} {
+			width: $i*(100%/12);
+		}
+	}
+}
+
+strong, b {
+	font-weight: $bold;
+}
+
+// top-menu
+.top-menu {
+	background-color: $cor1;
+	height: 40px;
+	text-align: right;
+
+	div {
+		display: inline-block;
+
+		&.regiao {
+			float: left;
+
+			a {
+				width: 24px;
+				height: 17px;
+				margin-top: 4px;
+				display: inline-block;
+			}
+		}
+
+		&.telefones {
+			span {
+				&::after {
+					content: '';
+					display: inline-block;
+					width: 1px;
+					margin: 0 10px 0 17px;
+					background-color: #ffffff;
+					height: 15px;
+					position: relative;
+					top: 3px;
+				}
+
+				&:last-child::after {
+					display: none;
+				}
+			}
+		}
+
+		&.email, &.redes-sociais {
+			margin-left: 60px;
+		}
+
+		&.redes-sociais {
+			i {
+				font-size: 1.375rem;
+				position: relative;
+				top: 3px;
+				margin-left: 5px;
+				color: #ffffff;
+			}
+		}
+	}
+
+	span, a { 
+		color: #ffffff;
+		font-size: .875rem;
+		line-height: 38px;
+	}
+}

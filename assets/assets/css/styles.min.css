@@ -1,0 +1,777 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Roboto|Signika|Work+Sans:200,300,400);
+.header_nav,
+.top_bar,
+header,
+section {
+    float: left;
+    width: 100%
+}
+
+.header_nav nav,
+.panel-form,
+.posts-destaques,
+.top_bar {
+    text-align: center
+}
+
+body {
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased
+}
+
+section:not(.slider_full_width) {
+    padding: 1.5em 0
+}
+
+section .row {
+    margin-bottom: 10px
+}
+
+.margin-services {
+    margin-bottom: 90px!important
+}
+
+h2,
+h3 {
+    margin: 0
+}
+
+h2 {
+    font-family: Signika, sans-serif;
+    font-weight: 600
+}
+
+h3 {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 200
+}
+
+.top_bar,
+.top_bar span {
+    font-family: Roboto, sans-serif
+}
+
+.top_bar {
+    background: #8f2365;
+    padding: .5em
+}
+
+.top_bar .fa {
+    font-size: 19px;
+    color: #fff;
+    margin-right: 5px
+}
+
+.fa-search:before {
+    content: "\f002";
+    display: inline-flex;
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    color: #8f2365;
+    font-size: 20px
+}
+.align-right{
+    text-align: right
+}
+.top_bar span {
+    color: #fff;
+    font-weight: 400;
+    display: inline-flex;
+    line-height: 1;
+    font-size: 17px;
+    font-family: 'Work Sans', sans-serif;
+    margin-right: 5px;
+}
+.top-bar div{
+    text-align: right;
+}
+.header_nav nav ul li a,
+.icon-service span,
+span.title-form {
+    font-family: Signika, sans-serif
+}
+
+.top_bar input[type=text] {
+    border: none;
+    border-radius: 3px;
+    padding: .6rem;
+    color: #8f2365;
+    font-style: italic;
+    background: #fff;
+    font-weight: 700
+}
+
+.header_nav {
+    background: #fff;
+    padding: 1.5em;
+    max-height: 150px
+}
+
+.logo {
+    max-width: 100%
+}
+
+.header_nav nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0
+}
+
+.header_nav nav {
+    line-height: 6.5;
+    background: 0 0;
+    border: none;
+    box-shadow: none
+}
+
+.header_nav nav ul li {
+    display: inline-block;
+    margin-right: 1.5em
+}
+
+.header_nav nav ul li:last-child {
+    margin-right: 0
+}
+
+.header_nav nav ul li a {
+    color: #8f2365;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    font-weight: 500
+}
+
+.header_nav ul li a:hover {
+    text-shadow: 1px 4px 6px rgba(0, 0, 0, .11);
+    text-decoration: none
+}
+
+.slider_full_width img {
+    width: 100%;
+    max-height: 600px;
+    min-height: 600px;
+}
+
+section#porque-a-zion {
+    background: #8f2365;
+    padding-bottom: 60px;
+    padding-top: 60px;
+}
+
+#porque-a-zion h3,
+section#porque-a-zion h2 {
+    color: #fff
+}
+#porque-a-zion .row:last-child{
+    margin-bottom: 0;
+}
+
+.box-precos {
+    box-sizing: border-box;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%
+}
+.box-precos .row {
+    margin-bottom: 17px;
+}
+.panel-form {
+    padding: 15px 25px;
+    background: #fff;
+    border-radius: 3px;
+    position: relative;
+    color: #8f2365
+}
+
+span.title-form {
+    font-weight: bolder;
+    font-size: 1.5em;
+    color: #8f2365;
+    font-style: italic
+}
+
+.icon-service {
+    font-size: 2em;
+    color: #fff;
+    text-align: center;
+    
+}
+.icon-service .fa{
+    font-size: 2em;
+    display: inline-block;
+    width: 100%;
+}
+
+.icon-service span {
+    font-size: 1em;
+    display: inline-block;
+    font-weight: 600;
+}
+
+.description-service {
+    color: #fff;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+    text-align: center;
+}
+
+.dropdown-destinos,
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+    line-height: inherit;
+    max-width: 100%;
+    width: 100%;
+    padding: 10px;
+    outline: 0;
+    box-shadow: 1px 5px 0 -4px rgba(33, 31, 32, .12)
+}
+
+button,
+input,
+select,
+textarea {
+    font-size: inherit;
+    background: #fff;
+    border: none;
+    border-bottom: 1px solid #fff;
+    border-radius: 11px
+}
+
+.input-with-icon i {
+    pointer-events: none;
+    position: absolute;
+    top: 27%;
+    right: 0;
+    color: #8f2365;
+    font-size: 18px;
+    float: right
+}
+
+form button {
+    background: #8f2365;
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 0
+}
+
+input::-moz-placeholder {
+    color: #8f2365
+}
+
+input::-webkit-input-placeholder {
+    color: #8f2365
+}
+
+.dropdown-destinos {
+    font-size: inherit;
+    background: #fff;
+    border: none;
+    float: left;
+    cursor: pointer;
+    border-bottom: 1px solid #fff;
+    border-radius: 11px
+}
+
+.dropdown-destinos i {
+    float: right;
+    color: #8f2365;
+    font-size: 18px
+}
+
+.dropdown-destinos span {
+    float: left;
+    color: #8f2365
+}
+
+.dropdown-destinos:active .select-options {
+    display: block
+}
+
+.select-options {
+    float: left;
+    max-width: 232px;
+    background: #fff;
+    box-shadow: 0 5px 10px -7px rgba(0, 0, 0, .41);
+    position: absolute;
+    width: 213px;
+    display: none;
+    z-index: 5;
+    top: 190px
+}
+
+.options {
+    margin-bottom: 10px;
+    color: #8f2365;
+    font-weight: 700
+}
+
+.half-input:first-child {
+    padding-left: 0;
+    padding-right: 5px
+}
+
+.half-input:last-child {
+    padding-right: 0;
+    padding-left: 5px
+}
+
+.call_to_action {
+    background: url(http://www.trbimg.com/img-546e449d/turbine/sfp-family-travel-tips-20141120);
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1920px;
+    position: relative;
+    min-height: 100%;
+    text-shadow: 0 0 10px rgba(0,0,0,0.7);
+    background-position: 50% 0;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 300px;
+}
+
+.block-text {
+    margin-top: 5%;
+    color: #fff;
+    margin-bottom: 0;
+    float: left;
+    width: 100%
+}
+
+.block-text button {
+    background: #8f2365;
+    border-radius: 0;
+    border: none;
+    max-width: 50%;
+    font-size: 1.5em
+}
+.pacotes-destaques img:hover {
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    -webkit-backface-visibility: hidden;
+}
+.pacotes-destaques img {
+ transition: all .2s ease;
+ max-width: 100%;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    background: url('data:;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6Q�KVUIHYzLjUuNUmK/OAAAAATSURBVBhXY2RgYNgHxGAAYuwDAA78AjwwRoQYAAAAAElFTkSuQmCC')\9;
+    z-index: 0;
+    color: #fff;
+    opacity: .7
+}
+
+.pacotes-destaques {
+    text-align: center;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    max-width: 33%;
+    /* margin: 0 auto; */
+    float: left;
+}
+.pacotes{
+    display: none;
+}
+.pacotes-destaques span {
+    font-size: 1em;
+    color: #8f2365
+}
+
+.pacotes-destaques button{
+    background: #8f2365;
+    color: #fff
+
+}
+
+section#blog_new_posts {
+        background: #e5e5e5;
+}
+.info {
+    text-align: left;
+    font-size: 14px;
+    color: #464646;
+    font-weight: 500;
+    font-family: Signika, sans-serif;
+}
+.dias .fa {
+    font-size: 14px;
+   
+}
+.pacotes-destaques button {
+    border: none;
+    border-radius: 0;
+    font-weight: 700;
+    font-size: 1em;
+    text-transform: uppercase
+}
+
+span.title-pacotes {
+    font-size: 1.5em;
+    font-family: Signika, sans-serif;
+    font-weight: 600
+}
+
+.posts-destaques {
+    padding: .5em 1.5em;
+    color: #8f2365
+}
+
+.posts-destaques .title-post {
+   text-align: left;
+    font-size: 18px;
+    color: #464646;
+    font-weight: 500;
+    font-family: Signika, sans-serif;
+}
+.leia-mais {
+     float: left;
+    line-height: 2;
+    border: 1px solid #8f2365;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 30px;
+}
+span.leia-mais {
+border: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #8f2365;
+}
+
+.content-post {
+    padding: 1em;
+    background: #fff
+}
+.content-post img{
+    max-width: 100%;
+}
+.content-post .row {
+    margin: 0 0 10px;
+    text-align: left;
+}
+.content-post .row:last-child{
+    margin-bottom: 0;
+}
+.content-post{
+    color: #464646
+}
+.ico-social {
+    text-align: right;
+}
+.ico-social .fa{
+    color: #8f2365;
+    font-size: 2em;
+}
+.content-blog {
+    padding: 1em
+}
+
+.navegacao-carrousel {
+    text-align: center;
+    border: 5px solid #e5e5e5;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    position: absolute;
+    left: 0;
+    right: 0;  
+background-color: #f0efef;
+}
+.icon-drag {
+    width: 100%;
+    float: left;
+    text-align: center;
+    display: inline-block;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.icon-drag img{
+    max-width: 30px;
+    animation:myship 10s;
+    -moz-animation:myship 10s; /* Firefox */
+    -webkit-animation:myship 10s; /* Safari and Chrome */
+}
+.icon-drag i{
+    color: #8f2365;
+    font-size: 25px;
+}
+.navegacao-carrousel ul{
+    padding: 0;
+}
+.pacotes {
+    margin-top: 50px;
+}
+.navegacao-carrousel li{
+    display: inline-block;
+    list-style: none;
+    margin-right: 2em;
+}
+.navegacao-carrousel a {
+    font-family: Signika, sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #8f2365;
+    font-size: 1.5em;
+}
+span.hoverOption {
+    border: 70px solid #8f2365;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-style: dotted;
+}
+
+.default{
+    display: block;
+}
+
+.navegacao-carrousel .item span {
+    color: #8f2365;
+    text-transform: uppercase;
+    padding: 0 25px;
+    font-size: 1.562rem;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    -moz-transition: all 0.2s ease 0s;
+    -webkit-transition: all 0.2s ease 0s;
+    -o-transition: all 0.2s ease 0s;
+}
+.item a:hover{
+    text-decoration: none;  
+    cursor: pointer;
+}
+#footer {
+    padding-top: 0;
+  padding-bottom: 0;
+}
+#footer p{
+    color: #8f2365;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+    color: #fff;
+    padding-right: 50px;
+}
+#footer ul li {
+    list-style: none;
+    text-align: left;
+    color: #fff;
+    font-style: italic;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+    font-size: 19.13px;
+}
+
+.img-responsive{
+    max-width: 70px;
+}
+#footer .fa{
+    color: #fff;
+    padding-right: 5px;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+.newsletter {
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+    background: #fff;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-bottom: 0;
+    
+}
+.rodape {
+    float: left;
+    width: 100%;
+        background: #8f2365;
+    padding-top: 1em;
+}
+.newsletter input{
+    max-width: 50%;
+    border-radius: 2px;
+}
+.btn-primary {
+    background-color: #8f2365;
+    max-width: 11%;
+    margin-left: -86px;
+    padding: 9px 15px 10px 14px;
+    border-radius: 2px;
+    margin-top: -1px;
+    color: #8f2365;
+    font-weight: bold;
+    border: 1px solid #8f2365;
+        color: #fff;
+}
+.btn-primary:hover{
+    background: #e5e5e5;
+    color: #8f2365;
+    border:1px solid #e5e5e5
+}
+span.text-newsletter {
+        color: #8f2365;
+    font-size: 2em;
+    font-family: Signika, sans-serif
+}
+
+span.minitext-newsletter {
+    font-size: 1em;
+    color: #8f2365;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 300
+}
+
+.title-section-footer {
+    color: #fff;
+    font-size: 2em;
+    font-family: Signika, sans-serif
+}
+div#copyright {
+    float: left;
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    padding: 10px;
+    color: #fff;
+}
+
+@media screen and (min-width:1024px) {
+    .top_bar {
+        max-height: 46px
+    }
+    
+}
+
+@media screen and (max-width:425px) {
+    .logo {
+        max-width: 100%
+    }
+    nav {
+        position: absolute;
+        z-index: 22
+    }
+    .input-with-icon i {
+        pointer-events: none;
+        position: absolute;
+        top: 23%;
+        right: 0;
+        color: #8f2365;
+        font-size: 18px;
+        float: right
+    }
+    .select-options {
+        float: left;
+        max-width: 100%;
+        background: #fff;
+        box-shadow: 0 5px 10px -7px rgba(0, 0, 0, .41);
+        position: absolute;
+        width: 95%;
+        display: none;
+        z-index: 5;
+        top: 190px
+    }
+    .call_to_action {
+        background: url(http://www.trbimg.com/img-546e449d/turbine/sfp-family-travel-tips-20141120) 0 no-repeat;
+        background-size: cover;
+        position: relative;
+        padding: 1.5em!important
+    }
+    nav ul {
+        background: #8f2365
+    }
+    nav ul li {
+        text-align: center;
+        display: inline-block;
+        width: 100%;
+        margin: 0!important
+    }
+    nav ul li a {
+        color: #fff!important
+    }
+}
+
+@media screen and (max-width:998px) {
+    .icon-service,
+    .nav-mobile ul li {
+        text-align: center
+    }
+    nav {
+        display: none!important
+    }
+    .nav-mobile {
+        display: block;
+        float: right;
+        position: absolute;
+        right: 0;
+        z-index: 22
+    }
+    .nav-mobile ul {
+        background: #8f2365;
+        padding: 0;
+        box-shadow: 0 1px 27px -10px #000;
+        position: relative;
+        top: 70px;
+        display: none
+    }
+    .nav-mobile ul li {
+        list-style: none;
+        width: 100%;
+        display: inline-block;
+        padding: 1em
+    }
+    .nav-mobile ul li a {
+        color: #fff;
+        font-size: 1.5em;
+        font-family: Signika, sans-serif
+    }
+    .dropdown-destinos i,
+    .nav-mobile i {
+        float: right;
+        color: #8f2365;
+        position: relative
+    }
+    .nav-mobile i {
+        font-size: 3em;
+        display: inline-flex;
+        top: 20px;
+        margin-right: 37px
+    }
+    .description-service {
+        text-align: center;
+        margin-bottom: 15px
+    }
+    .input-with-icon i {
+        position: relative;
+        top: -40px;
+        right: 0
+    }
+    input {
+        margin-bottom: 10px
+    }
+    .dropdown-destinos i {
+        font-size: 1.7em;
+        right: 10px
+    }
+}
+
+@media screen and (min-width:999px) {
+    .nav-mobile {
+        display: none
+    }
+}
+.fadeInBlock {
+    opacity:0;
+}
