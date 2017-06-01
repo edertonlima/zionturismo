@@ -26,15 +26,18 @@
 	</div>
 </section>
 
-<h1>
-	<a href="#">
-		<img src="assets/images/logo.png" alt="">
-	</a>
-</h1>
+<section class="menu">
+	<div class="container">
 
-<div class="box-menu">
-	<div class="info">
+		<h1>
+			<a href="#">
+				<img src="assets/images/logo.png" alt="">
+			</a>
+		</h1>
 
-	</div>
-	<?php include "includes/menu.php"; ?>
-</div>
+		<?php include "includes/menu.php"; ?>
+
+	</div>	
+</section>
+
+<section class="img-capa" style="background-image: url('assets/images/img-capa.jpg');"></section>
