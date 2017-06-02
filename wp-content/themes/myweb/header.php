@@ -91,7 +91,7 @@
 <title><?php echo $titulo; ?></title>
 
 <!-- CSS -->
-<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/style.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/style-page.css" media="screen" />
 
 <?php if(is_singular('produto')){ ?>
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/owl.carousel.min.css" type="text/css" media="screen" />
@@ -104,113 +104,106 @@
 
 <script type="text/javascript">
 	jQuery.noConflict();
-
 	jQuery(document).ready(function(){
-		/* MAPA GOOGLE */
-		jQuery('.mapa-google').click(function () {
-		    jQuery('.mapa-google').css("pointer-events", "auto");
-		});
-		jQuery('.mapa-google').mouseleave(function() {
-		  	jQuery('.mapa-google').css("pointer-events", "none"); 
+		jQuery('.place-textarea textarea').keypress(function(event) {
+			jQuery(this).siblings('.placeholder').hide();
 		});
 
-		/* SETA */
-		jQuery(".seta").click(function(){
-			var scroll = jQuery(this).attr('rel');
-		    jQuery("html, body").animate({ scrollTop: jQuery(scroll).offset().top }, 1000);
-		});
-
-		/* OPEN/CLOSE MENU */
-		jQuery('.menu-mobile').click(function(){
-			if(jQuery(this).hasClass('active')){
-				jQuery(this).removeClass('active');
-				jQuery('.nav').css('left','100vw');
-				jQuery('.region').css('left','100vw');
-				jQuery('.info-tel').css('left','100vw');
-			}else{
-				jQuery(this).addClass('active');
-				jQuery('.nav').css('left','0vw');
-				jQuery('.region').css('left','0vw');
-				jQuery('.info-tel').css('left','0vw');
+		jQuery('.place-textarea textarea').blur(function(event) {
+			if(jQuery(this).val() == ''){
+				jQuery(this).siblings('.placeholder').show();
 			}
 		});
+
+		if(jQuery('.place-textarea textarea').val() != ''){
+			jQuery('.place-textarea textarea').siblings('.placeholder').hide();
+		}
 	});	
 
 	jQuery(window).resize(function(){
-		jQuery('.menu-mobile').removeClass('active');
-		jQuery('.nav').css('left','100vw');
-		jQuery('.region').css('left','100vw');
-		jQuery('.info-tel').css('left','100vw');
+
 	});
 </script>
 
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class($wp_query->queried_object->post_name); ?>>
 
 	<header class="header">
-		<div class="container">
-			<div class="row">
+		<section class="top-menu">
+			<div class="container">
+				
+				<div class="regiao">
+					<a href="#" class="" title="EN"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/en.png" alt=""></a>
+					<a href="#" class="ativo" title="PT"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/pt.png" alt=""></a>
+					<a href="#" class="" title="ES" style="display: none;">ES</a>
+				</div>
 
-				<h1>
-					<a href="<?php echo get_home_url(); ?>" title="<?php bloginfo('name'); ?>">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="<?php bloginfo('name'); ?>">
-					</a>
-				</h1>
+				<div class="telefones">
+					<span class="tel">(11) 4118-6261</span>
+					<span class="tel">(35) 538-4455</span>
+					<span class="tel">(40) 967-7788</span>
+				</div>
 
-				<div class="box-menu">
-					<a href="javascript:" class="menu-mobile"><span><em>X</em></span></a>
+				<div class="email">
+					<a href="mailto: atendimento@zionturismo.com.br" title="atendimento@zionturismo.com.br">atendimento@zionturismo.com.br</a>
+				</div>
 
-					<div class="info">
-						<span class="info-tel">0800 7045049</span>
-						<div class="region">
-							<a href="javascript:" class="" title="EN" style="display: none;">EN</a>
-							<a href="javascript:" class="ativo" title="PT">PT</a>
-							<a href="javascript:" class="" title="ES" style="display: none;">ES</a>
-						</div>
-					</div>
-
-					<nav class="nav">
-						<ul class="menu-principal">
-							<li class="<?php if(is_post_type_archive('produto')){ echo 'active'; } ?>">
-								<a href="<?php echo get_home_url(); ?>?post_type=produto" title="PRODUTOS" class="ativo">PRODUTOS</a>
-							</li>
-							<li class="<?php if((is_page('simulador-cores')) or (is_page('calculadora-consumo'))){ echo 'active'; } ?>">
-								<a href="<?php echo get_permalink(get_page_by_path('simulador-cores')); ?>" title="SIMULADORES">SIMULADORES</a>
-								<ul class="submenu">
-									<li class="matriz-filiais"><a href="<?php echo get_permalink(get_page_by_path('simulador-cores')); ?>" title="SIMULADOR DE CORES" class="<?php if(is_page('simulador-cores')){ echo 'active'; } ?>">SIMULADOR<br>DE CORES</a></li>		
-									<li class="trabalhe-conosco"><a href="<?php echo get_permalink(get_page_by_path('calculadora-consumo')); ?>" title="CALCULADORA DE CONSUMO" class="<?php if(is_page('calculadora-consumo')){ echo 'active'; } ?>">CALCULADORA<br>DE CONSUMO</a></li>	
-								</ul>
-							</li>
-							<li class="<?php if((is_page('aaaaaa')) or (is_page('trabalhe-conosco')) or (is_page('empresa'))){ echo 'active'; } ?>">
-								<a href="<?php echo get_permalink(get_page_by_path('empresa')); ?>" title="EMPRESA">EMPRESA</a>
-								<ul class="submenu">
-									<li class="matriz-filiais"><a href="<?php echo get_home_url(); ?>?post_type=matriz_filiais" title="MATRIZ E UNIDADES" class="<?php if(is_page('aaaaaa')){ echo 'active'; } ?>">MATRIZ E<br>UNIDADES</a></li>		
-									<li class="trabalhe-conosco"><a href="<?php echo get_permalink(get_page_by_path('trabalhe-conosco')); ?>" title="TRABALHE CONOSCO" class="<?php if(is_page('aaaaaa')){ echo 'active'; } ?>">TRABALHE<br>CONOSCO</a></li>		
-									<li class="premios"><a href="<?php echo get_permalink(get_page_by_path('empresa')); ?>#premios" title="PRÊMIOS" class="<?php if(is_page('aaaaaa')){ echo 'active'; } ?>">PRÊMIOS</a></li>				
-									<li class="ideologia-corporativa"><a href="<?php echo get_permalink(get_page_by_path('empresa')); ?>#ideologia-corporativa" title="IDEOLOGIA CORPORATIVA" class="<?php if(is_page('aaaaaa')){ echo 'active'; } ?>">IDEOLOGIA<br>CORPORATIVA</a></li>
-								</ul>
-							</li>
-							<li class="<?php if((is_page('aaaaaa')) or (is_page('aaaaaa')) or (is_page('aaaaaa'))){ echo 'active'; } ?>">
-								<a href="javascript:" title="CONTATO">CONTATO</a>
-								<ul class="submenu">
-									<li class="matriz-filiais"><a href="<?php echo get_home_url(); ?>?post_type=matriz_filiais" title="MATRIZ E UNIDADES" class="<?php if(is_page('aaaaaa')){ echo 'active'; } ?>">MATRIZ E<br>UNIDADES</a></li>		
-									<li class="trabalhe-conosco"><a href="<?php echo get_permalink(get_page_by_path('fale-conosco')); ?>" title="FALE CONOSCO" class="<?php if(is_page('aaaaaa')){ echo 'active'; } ?>">FALE<br>CONOSCO</a></li>		
-									<li class="trabalhe-conosco"><a href="<?php echo get_permalink(get_page_by_path('trabalhe-conosco')); ?>" title="TRABALHE CONOSCO" class="<?php if(is_page('aaaaaa')){ echo 'active'; } ?>">TRABALHE<br>CONOSCO</a></li>
-								</ul>
-							</li>
-							<li class="<?php if((is_page('aaaaaa')) or (is_page('aaaaaa')) or (is_page('aaaaaa'))){ echo 'active'; } ?>">
-								<a href="javascript:" title="MÍDIA">MÍDIA</a>
-								<ul class="submenu">
-									<li class="matriz-filiais"><a href="<?php echo get_home_url(); ?>?cat=1" title="RELEASES" class="<?php if(is_page('aaaaaa')){ echo 'active'; } ?>">RELEASES</a></li>		
-									<li class="trabalhe-conosco"><a href="<?php echo get_home_url(); ?>?cat=9" title="NA MÍDIA" class="<?php if(is_page('aaaaaa')){ echo 'active'; } ?>">NA MÍDIA</a></li>		
-									<li class="premios"><a href="<?php echo get_permalink(get_page_by_path('downloads')); ?>" title="DOWNLOAD" class="<?php if(is_page('aaaaaa')){ echo 'active'; } ?>">DOWNLOAD</a></li>				
-								</ul>
-							</li>
-						</ul>
-					</nav>
-
+				<div class="redes-sociais">
+					<a href="#" title=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
+					<a href="#" title=""><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+					<a href="#" title=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
 				</div>
 
 			</div>
-		</div>
+		</section>
+
+		<section class="menu">
+			<div class="container">
+
+				<h1>
+					<a href="<?php echo get_home_url(); ?>" title="<?php echo $titulo; ?>">
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="">
+					</a>
+				</h1>
+
+				<nav class="nav">
+					<ul>
+						<li class="">
+							<a href="<?php echo get_home_url(); ?>" title="HOME" class="">HOME</a>
+						</li>
+						<li class="">
+							<a href="<?php echo get_permalink(get_page_by_path('quem-somos')); ?>" title="<?php echo get_the_title(get_page_by_path('quem-somos')); ?>" class=""><?php echo get_the_title(get_page_by_path('quem-somos')); ?></a>
+						</li>
+						<li class="">
+							<a href="#" title="" class="">INGRESSOS</a>
+						</li>
+						<li class="">
+							<a href="#" title="" class="">PACOTES</a>
+						</li>
+						<li class="">
+							<a href="#" title="" class="">SERVIÇOS</a>
+						</li>
+						<li class="">
+							<a href="#p" title="" class="">BLOG</a>
+						</li>
+						<li class="">
+							<a href="<?php echo get_permalink(get_page_by_path('contato')); ?>" title="<?php echo get_the_title(get_page_by_path('contato')); ?>" class=""><?php echo get_the_title(get_page_by_path('contato')); ?></a>
+						</li>
+					</ul>
+				</nav>
+
+			</div>	
+		</section>
+
+		<section class="img-capa" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/img-capa.jpg');"></section>
 	</header>
+
+	<div class="container">
+		<ul class="nav-page">
+			<li><a href="<?php echo get_home_url(); ?>">Home</a></li>
+			<li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+			<li><span><?php the_title(); ?></span></li>
+		</ul>
+
+		<h2><?php the_title(); ?></h2>
+	</div>

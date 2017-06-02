@@ -231,7 +231,7 @@ if($producao){
 	add_action('admin_head', 'my_custom_fonts');
 
 	function my_custom_fonts() {
-	  echo '<style>
+	  /*echo '<style>
 		#menu-media, #menu-comments, #menu-appearance, #menu-plugins, #menu-tools, #menu-settings, #toplevel_page_edit-post_type-acf, #toplevel_page_edit-post_type-acf-field-group, 
 		#toplevel_page_zilla-likes, 
 		#screen-options-link-wrap, 
@@ -268,7 +268,7 @@ if($producao){
 				jQuery("#toplevel_page_pmxi-admin-home li:nth-child(5)").html("");
 			});
 		</script>
-	  ';
+	  ';*/
 	}
 }
 

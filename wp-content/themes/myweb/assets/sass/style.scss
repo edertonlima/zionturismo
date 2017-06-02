@@ -214,6 +214,7 @@ h2 {
 	text-align: center;
 	color: $cor1;
 	letter-spacing: -4px;
+	text-transform: uppercase;
 	@include box-sizing();
 }
 
@@ -714,6 +715,7 @@ form {
 	padding: 15px;
 	width: 100%;
 	background-color: #eeeeee;
+	overflow: hidden;
 	@include box-sizing();
 
 	.num-slide {
@@ -728,6 +730,10 @@ form {
 		color: #727272;
 		display: block;
 		margin-top: 20px;
+	}
+
+	.owl-item {
+		float: left;
 	}
 
 	.owl-nav {
@@ -824,7 +830,7 @@ form {
 		overflow: hidden;
 
 		.info-contato, #map {
-			position: absolute;
+			position: absolute!important;
 			top: 0px;
 			height: 443px;
 		}
