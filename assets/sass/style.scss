@@ -114,6 +114,7 @@ $font-family: 'Signika', sans-serif;
 $cor-txt: #5c5c5c;
 $font-size: 1.125rem;
 $cor1: #911f66;
+$cor2: #4d7bb3;
 
 $light: 300;
 $regular: 500;
@@ -292,7 +293,7 @@ textarea {
 	@include clear();
 }
 
-button {
+button, .button {
 	cursor: pointer;
 
 	&.news-enviar {
@@ -322,6 +323,20 @@ button {
 
 	&.enviar {		
 		padding: 0 10px;			
+	}
+
+	&.ver-pacote {
+		background-color: $cor1;
+		text-align: center;
+		font-size: .875rem;
+		color: #ffffff;
+		padding: 0 20px;
+		font-weight: $regular;
+		border-radius: 2px;
+		text-transform: uppercase;
+		line-height: 35px;
+		height: 35px;
+		display: inline-block;
 	}
 }
 
@@ -774,7 +789,7 @@ form {
 		color: $cor-txt;
 		text-align: center;
 		border-top: none;
-		border-bottom: 2px dotted #e7e7e7;
+		border-bottom: 2px dashed #e7e7e7;
 		text-indent: 0px;
 		width: 100%;
 	}
@@ -887,5 +902,336 @@ form {
 		background: url(../images/bg_contato.jpg) repeat center;
 		padding: 50px 0;
 		margin-top: 50px;
+	}
+}
+
+//.pacotes
+.pacotes {
+	.item-pacote {
+		border: 1px solid #e7e7e7;
+		width: 100%;
+		height: auto;
+		margin-bottom: 30px;		
+		display: table;
+		@include box-sizing();
+		@include clear();
+
+		&:last-child {
+			margin-bottom: 0px;
+		}
+
+		img, .info-item, .preco {
+			display: table-cell;
+			vertical-align: middle;
+		}
+
+		img {
+
+		}
+
+		.info-item {
+			width: 45%;
+
+			h3 {
+				color: #000000;
+				background-color: transparent;
+				height: auto;
+				display: block;
+				border-radius: none;
+				margin: 0 0 15px;
+				font-size: 1.225em;
+				line-height: 1.5rem;
+				letter-spacing: -1px;
+				text-align: left;
+			}
+
+			p {
+				padding: 0px 20px;
+				color: #999999;
+				font-size: 1rem;
+				line-height: 1.125rem;
+				margin-bottom: 10px;
+			}
+
+			.det-item {
+				padding: 0px 20px;
+
+				.info-pacote {
+					display: inline-block;
+					font-size: .875rem;
+					margin: 5px 5px 0 0;
+					background-color: #e9e9e9;
+					border-radius: 2px;
+					padding: 10px;
+
+					i {
+						color: $cor2;
+						margin-right: 5px;
+					}
+				}
+			}
+		}
+
+		.preco {
+			width: 180px;
+			text-align: center;
+			border-left: 1px solid #e7e7e7;
+
+			.val-preco, .det-preco {
+				display: block;
+			}
+			
+			.val-preco {
+				color: $cor1;
+				font-size: 1.8rem;
+				line-height: 1.325rem;
+			}
+
+			.det-preco {
+				font-size: .875rem;
+				line-height: .875rem;
+			}
+
+			.ver-pacote {
+				margin-top: 10px;
+			}
+		}
+	}
+
+	.list-produtos {
+		border: 1px solid #e7e7e7;
+		width: 100%;
+
+		h3 {
+			background-color: $cor1;
+			//background-color: transparent;
+			border-top: 0;
+			border-bottom: 1px solid #e7e7e7;
+			margin: 0px;
+			padding: 15px 0;
+			font-weight: $regular;
+			color: #ffffff;
+			//color: $cor1;
+			width: 100%;
+			font-size: 1.225rem;
+			line-height: 1.2rem;
+			height: auto;
+			letter-spacing: -1px;
+			position: relative;
+
+			/*&:after {
+				content: '';
+				width: 40px;
+				height: 5px;
+				background-color: #e7e7e7;
+				display: block;
+				margin: 0 0 0 -20px;
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+			}*/
+		}
+
+		.box-list-produtos {
+			padding: 15px;
+			display: block;
+		}
+
+		.item-prod {
+			border-bottom: 1px dashed #e7e7e7;
+			display: table;
+			width: 100%;
+			margin-bottom: 15px;
+			padding-bottom: 15px;
+
+			&:last-child {
+				border-bottom: none;
+				padding-bottom: 0;
+				margin-bottom: 0px;
+			}
+
+			img, .info-prod {
+				display: table-cell;
+			}
+
+			img {
+				//width: 45%;
+				//margin-right: 3%;
+			}
+
+			.info-prod {
+				width: 60%;
+				vertical-align: middle;
+
+				h4, a {
+					margin-left: 10px;
+				}
+
+				h4 {
+					font-size: 1rem;
+					line-height: 1.125rem;
+					display: block;
+					//color: $cor2;
+				}
+
+				a {
+					font-size: .75rem;
+					background-color: #e9e9e9;
+					border-radius: 2px;
+					padding: 3px 10px;
+					margin-top: 5px;
+					display: inline-block;
+				}
+			}
+		}
+	}
+}
+
+//.det-pacote
+.det-pacote {
+	.det-item {
+		width: 100%;
+		text-align: center;
+		display: block;
+		margin: 15px 0 30px;
+
+		.info-pacote {
+			display: inline-block;
+			padding: 15px 20px 15px 0;
+			border-right: 1px solid #eaeaea;
+			margin-right: 15px;
+
+			&:last-child {
+				padding-right: 0;
+				border-right: none;
+				margin-right: 0;
+			}
+
+			i, .tit-info {
+				display: table-cell;
+				vertical-align: middle;
+			}
+
+			i {
+				color: $cor2;
+				font-size: 2rem;
+			}
+
+			.tit-info {
+				color: #000000;
+				text-align: left;
+				padding-left: 15px;
+
+				.complemento {
+					display: block;
+					color: #999999;
+				}
+			}
+		}
+	}
+
+	p {
+		line-height: 1.125rem;
+		font-size: 1rem;
+	}
+
+	.info-tecnico {
+		margin-top: 40px;
+		border-top: 2px solid #e7e7e7;
+
+		.item {
+			border-top: 1px solid #e7e7e7;
+			padding: 30px 20px;
+
+			.tit-info {
+				padding-right: 50px;
+				width: 80px;
+				display: table-cell;
+				font-weight: $bold;
+			}
+
+			ul {
+				display: table-cell;
+
+				li {
+					display: block;
+					margin-bottom: 7px;
+
+					strong {
+						display: block;
+						margin-bottom: 3px;
+					}
+
+					&:last-child {
+						margin-bottom: 0px!important;
+					}
+				}
+
+				.fa-check {
+					color: #5bb618;
+				}
+
+				.fa-close {
+					color: #ad3053;
+				}
+
+				&.ico {
+					li {
+						padding-left: 25px;
+						position: relative;
+					}
+
+					i {
+						position: absolute;
+						left: 0px;
+						top: 3px;
+					}
+				}
+
+				&.roteiro {
+					li {
+						margin-bottom: 20px;
+					}
+				}
+			}
+		}
+	}
+}
+
+//.slide-produto
+.slide-produto {
+	width: 100%;
+	@include box-sizing();
+
+	.owl-nav {
+		position: absolute;
+		width: 100%;
+		display: block;
+		top: 50%;
+		margin-top: -31px;
+
+		.owl-prev, .owl-next {
+			width: 23px;
+			height: 63px;
+			background-repeat: no-repeat;
+			text-indent: -10000px;
+
+			i {
+				color: #ffffff;
+				font-size: 1.5rem;
+			}
+		}
+
+		.owl-prev {
+			float: left;
+			margin-left: 30px;
+			background-image: url('../images/seta-slide-produto-left.png');
+		}
+
+		.owl-next {
+			float: right;
+			margin-right: 30px;
+			background-image: url('../images/seta-slide-produto-right.png');
+		}
 	}
 }
