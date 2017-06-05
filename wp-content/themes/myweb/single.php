@@ -1,27 +1,29 @@
 <?php get_header(); ?>
 
-<section class="box-container box-release">
+<div class="container">
+	<ul class="nav-page">
+		<li><a href="index.html">Home</a></li>
+		<li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+		<li><a href="<?php echo get_home_url(); ?>?cat=1">Blog</a></li>
+	</ul>
+
+	<h2><?php the_title(); ?></h2>
+</div>
+
+<section class="section blog">
 	<div class="container">
-		<h2><?php the_category(); ?></h2>
 
-		<div class="conteudo">
+		<div class="row">
+			<div class="col-12">
 
-			<?php while ( have_posts() ) : the_post();
-
-				get_template_part( 'content', get_post_format() ); ?>
-
-				<?php /* if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif; */ ?>
-				
-				<?php /*the_post_navigation( array(
-					'prev_text' => '<span class="prev"><i class="fa fa-long-arrow-left"></i> %title</span>',
-					'next_text' => '<span class="next">%title <i class="fa fa-long-arrow-right"></i></span>',
-				)); */?>
-
-			<?php endwhile; ?>
-
+				<?php while ( have_posts() ) : the_post(); ?>
+					<?php get_template_part( 'content', get_post_format() ); ?>
+				<?php endwhile; ?>
+			
+			</div>
 		</div>
+
+		<?php paginacao(); ?>
 
 	</div>
 </section>

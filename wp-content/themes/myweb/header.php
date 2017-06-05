@@ -126,7 +126,16 @@
 </script>
 
 </head>
-<body <?php body_class($wp_query->queried_object->post_name); ?>>
+
+<?php 
+	/*if(is_tax('categoria_pacote')){
+		$body_class = 'pacotes';
+	}else{*/
+		$body_class = $wp_query->queried_object->post_name;
+	//}
+?>
+
+<body <?php body_class($body_class); ?>>
 
 	<header class="header">
 		<section class="top-menu">
@@ -175,16 +184,16 @@
 							<a href="<?php echo get_permalink(get_page_by_path('quem-somos')); ?>" title="<?php echo get_the_title(get_page_by_path('quem-somos')); ?>" class=""><?php echo get_the_title(get_page_by_path('quem-somos')); ?></a>
 						</li>
 						<li class="">
-							<a href="#" title="" class="">INGRESSOS</a>
+							<a href="javascript:" title="" class="">INGRESSOS</a>
 						</li>
 						<li class="">
-							<a href="#" title="" class="">PACOTES</a>
+							<a href="<?php echo get_home_url(); ?>?post_type=pacotes" title="" class="">PACOTES</a>
 						</li>
 						<li class="">
-							<a href="#" title="" class="">SERVIÇOS</a>
+							<a href="<?php echo get_home_url(); ?>?post_type=servicos" title="" class="">SERVIÇOS</a>
 						</li>
 						<li class="">
-							<a href="#p" title="" class="">BLOG</a>
+							<a href="<?php echo get_home_url(); ?>?cat=1" title="" class="">BLOG</a>
 						</li>
 						<li class="">
 							<a href="<?php echo get_permalink(get_page_by_path('contato')); ?>" title="<?php echo get_the_title(get_page_by_path('contato')); ?>" class=""><?php echo get_the_title(get_page_by_path('contato')); ?></a>
@@ -197,13 +206,3 @@
 
 		<section class="img-capa" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/img-capa.jpg');"></section>
 	</header>
-
-	<div class="container">
-		<ul class="nav-page">
-			<li><a href="<?php echo get_home_url(); ?>">Home</a></li>
-			<li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-			<li><span><?php the_title(); ?></span></li>
-		</ul>
-
-		<h2><?php the_title(); ?></h2>
-	</div>

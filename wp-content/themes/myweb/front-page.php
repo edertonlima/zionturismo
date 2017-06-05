@@ -48,16 +48,16 @@
                                     <a href="<?php echo get_permalink(get_page_by_path('quem-somos')); ?>" title="<?php echo get_the_title(get_page_by_path('quem-somos')); ?>" class=""><?php echo get_the_title(get_page_by_path('quem-somos')); ?></a>
                                 </li>
                                 <li class="">
-                                    <a href="#" title="" class="">INGRESSOS</a>
+                                    <a href="javascript:" title="" class="">INGRESSOS</a>
                                 </li>
                                 <li class="">
-                                    <a href="#" title="" class="">PACOTES</a>
+                                    <a href="<?php echo get_home_url(); ?>?post_type=pacotes" title="" class="">PACOTES</a>
                                 </li>
                                 <li class="">
-                                    <a href="#" title="" class="">SERVIÇOS</a>
+                                    <a href="<?php echo get_home_url(); ?>?post_type=servicos" title="" class="">SERVIÇOS</a>
                                 </li>
                                 <li class="">
-                                    <a href="#p" title="" class="">BLOG</a>
+                                    <a href="<?php echo get_home_url(); ?>?cat=1" title="" class="">BLOG</a>
                                 </li>
                                 <li class="">
                                     <a href="<?php echo get_permalink(get_page_by_path('contato')); ?>" title="<?php echo get_the_title(get_page_by_path('contato')); ?>" class=""><?php echo get_the_title(get_page_by_path('contato')); ?></a>

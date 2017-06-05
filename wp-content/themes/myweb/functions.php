@@ -26,7 +26,7 @@
 	} );
 
 	// muda nome post
-	function change_post_label() {
+	/*function change_post_label() {
 	    global $menu;
 	    global $submenu;
 	    $menu[5][0] = 'Releases';
@@ -34,26 +34,26 @@
 	    $submenu['edit.php'][10][0] = 'Adicionar Release';
 	    $submenu['edit.php'][16][0] = 'Tags';
 	    echo '';
-	}
+	}*/
 	function change_post_object() {
 	    global $wp_post_types;
 	    $labels = &$wp_post_types['post']->labels;
-	    $labels->name = 'Releases';
+	    $labels->name = 'Blog';
 	    $labels->singular_name = 'Release';
-	    $labels->add_new = 'Adicionar Release';
-	    $labels->add_new_item = 'Adicionar Release';
-	    $labels->edit_item = 'Editar Release';
-	    $labels->new_item = 'Release';
-	    $labels->view_item = 'Ver Release';
-	    $labels->search_items = 'Buscar Release';
-	    $labels->not_found = 'Nenhum Release encontrado';
-	    $labels->not_found_in_trash = 'Nenhum Release encontrado no Lixo';
-	    $labels->all_items = 'Todos Releases';
-	    $labels->menu_name = 'Releases';
-	    $labels->name_admin_bar = 'Releases';
+	    $labels->add_new = 'Adicionar Post';
+	    $labels->add_new_item = 'Adicionar Post';
+	    $labels->edit_item = 'Editar Post';
+	    $labels->new_item = 'Blog';
+	    $labels->view_item = 'Ver Post';
+	    $labels->search_items = 'Buscar Post';
+	    $labels->not_found = 'Nenhum Post encontrado';
+	    $labels->not_found_in_trash = 'Nenhum Post encontrado no Lixo';
+	    $labels->all_items = 'Todos Post';
+	    $labels->menu_name = 'Blog';
+	    $labels->name_admin_bar = 'Blog';
 	}
 	 
-	add_action( 'admin_menu', 'change_post_label' );
+	//add_action( 'admin_menu', 'change_post_label' );
 	add_action( 'init', 'change_post_object' );
 	// muda nome post
 
@@ -80,25 +80,62 @@
 	add_action('init', 'myprefix_unregister_tags');
 	// end Remove tags
 
+	// serviços
+	add_action('init', 'type_post_servicos');
+	function type_post_servicos() {
+		$labels = array(
+			'name' => _x('Serviços', 'post type general name'),
+			'singular_name' => _x('Serviços', 'post type singular name'),
+			'add_new' => _x('Adicionar Novo', 'Novo item'),
+			'add_new_item' => __('Novo Item'),
+			'edit_item' => __('Editar Item'),
+			'new_item' => __('Novo Item'),
+			'view_item' => __('Ver Item'),
+			'all_items' => __('Todas os Serviços'),
+			'search_items' => __('Procurar Itens'),
+			'not_found' => __('Nenhum registro encontrado'),
+			'not_found_in_trash' => __('Nenhum registro encontrado na lixeira'),
+			'parent_item_colon' => '',
+			'menu_name' => 'Serviços'
+		);
 
-	// PRODUTOS
-	add_action( 'init', 'create_post_type_produto' );
-	function create_post_type_produto() {
+		$args = array(
+			'labels' => $labels,
+			'public' => true,
+			'public_queryable' => true,
+			'show_ui' => true,
+			'query_var' => true,
+			'rewrite' => true,
+			'capability_type' => 'post',
+			'has_archive' => true,
+			'hierarchical' => false,
+			'menu_icon' => 'dashicons-admin-tools',
+			'supports' => array('title')
+		);
+
+		register_post_type( 'servicos' , $args );
+		flush_rewrite_rules();
+	}
+
+
+	// pacotes
+	add_action( 'init', 'create_post_type_pacotes' );
+	function create_post_type_pacotes() {
 
 		$labels = array(
-		    'name' => _x('Produtos', 'post type general name'),
-		    'singular_name' => _x('Produto', 'post type singular name'),
-		    'add_new' => _x('Adicionar Nova', 'Produto'),
-		    'add_new_item' => __('Add New Produto'),
-		    'edit_item' => __('Edit Produto'),
-		    'new_item' => __('New Produto'),
-		    'all_items' => __('Todas as Produto'),
-		    'view_item' => __('View Produto'),
-		    'search_items' => __('Search Produto'),
-		    'not_found' =>  __('No Produto found'),
-		    'not_found_in_trash' => __('No Produto found in Trash'),
+		    'name' => _x('Pacotes', 'post type general name'),
+		    'singular_name' => _x('Pacote', 'post type singular name'),
+		    'add_new' => _x('Adicionar Nova', 'Pacote'),
+		    'add_new_item' => __('Add New Pacote'),
+		    'edit_item' => __('Edit Pacote'),
+		    'new_item' => __('New Pacote'),
+		    'all_items' => __('Todos os Pacotes'),
+		    'view_item' => __('View Pacote'),
+		    'search_items' => __('Search Pacote'),
+		    'not_found' =>  __('No Pacote found'),
+		    'not_found_in_trash' => __('No Pacote found in Trash'),
 		    'parent_item_colon' => '',
-		    'menu_name' => 'Produtos'
+		    'menu_name' => 'Pacotes'
 		);
 		$args = array(
 		    'labels' => $labels,
@@ -115,14 +152,14 @@
 		    'supports' => array('title','thumbnail')
 		  );
 
-	    register_post_type( 'produto', $args );
+	    register_post_type( 'pacotes', $args );
 	}
 
-	add_action( 'init', 'create_taxonomy_categoria_produto' );
-	function create_taxonomy_categoria_produto() {
+	add_action( 'init', 'create_taxonomy_categoria_pacotes' );
+	function create_taxonomy_categoria_pacotes() {
 
 		$labels = array(
-		    'name' => _x( 'Categorias de Produto', 'taxonomy general name' ),
+		    'name' => _x( 'Categorias de Pacotes', 'taxonomy general name' ),
 		    'singular_name' => _x( 'Categorias', 'taxonomy singular name' ),
 		    'search_items' =>  __( 'Search Categorias' ),
 		    'all_items' => __( 'All Categories' ),
@@ -135,22 +172,22 @@
 		    'menu_name' => __( 'Categorias' ),
 		);
 
-	    register_taxonomy( 'categoria_produto', array( 'produto' ), array(
+	    register_taxonomy( 'categoria_pacotes', array( 'pacotes' ), array(
 	        'hierarchical' => true,
 	        'labels' => $labels,
 	        'show_ui' => true,
 	        'show_in_tag_cloud' => true,
 	        'query_var' => true,
-			'has_archive' => 'produto',
+			'has_archive' => 'pacotes',
 			'rewrite' => array(
-			    'slug' => 'produto',
+			    'slug' => 'pacotes',
 			    'with_front' => false,
 				),
 	        )
 	    );
 	}
 
-
+/*
 	// matriz e filiais
 	add_action('init', 'type_post_matriz_filiais');
 	function type_post_matriz_filiais() {
@@ -223,7 +260,7 @@
 		register_post_type( 'lojas' , $args );
 		flush_rewrite_rules();
 	}
-
+*/
 
 
 $producao = false;
@@ -297,57 +334,6 @@ if( function_exists('acf_add_options_page') ) {
 		'icon_url' 		=> 'dashicons-admin-collapse'
 	));
 
-	acf_add_options_page(array(
-		'page_title' 	=> 'Simuladores',
-		'menu_title'	=> 'Simuladores',
-		'menu_slug' 	=> 'simuladores',
-		'capability'	=> 'edit_posts',
-		'redirect'		=> true,
-		'icon_url' 		=> 'dashicons-editor-table'
-	));
-
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Simuladores Sala',
-		'menu_title'	=> 'Sala',
-		'parent_slug'	=> 'simuladores',
-	));
-
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Simuladores Cozinha',
-		'menu_title'	=> 'Cozinha',
-		'parent_slug'	=> 'simuladores',
-	));
-
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Simuladores Banheiro',
-		'menu_title'	=> 'Banheiro',
-		'parent_slug'	=> 'simuladores',
-	));
-
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Simuladores Piscina',
-		'menu_title'	=> 'Piscina',
-		'parent_slug'	=> 'simuladores',
-	));
-
-	acf_add_options_page(array(
-		'page_title' 	=> 'Prêmios',
-		'menu_title'	=> 'Prêmios',
-		'menu_slug' 	=> 'premios',
-		'capability'	=> 'edit_posts',
-		'redirect'		=> false,
-		'icon_url' 		=> 'dashicons-awards'
-	));
-
-	acf_add_options_page(array(
-		'page_title' 	=> 'Downloads',
-		'menu_title'	=> 'Downloads',
-		'menu_slug' 	=> 'downloads',
-		'capability'	=> 'edit_posts',
-		'redirect'		=> true,
-		'icon_url' 		=> 'dashicons-paperclip'
-	));
-
 	acf_add_options_sub_page(array(
 		'page_title' 	=> 'Anúncios',
 		'menu_title'	=> 'Anúncios',
@@ -382,40 +368,6 @@ if( function_exists('acf_add_options_page') ) {
 		'menu_title'	=> 'Geral',
 		'parent_slug'	=> 'configuracoes-geral',
 	));
-
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Matriz e Filiais',
-		'menu_title'	=> 'Matriz e Filiais',
-		'parent_slug'	=> 'configuracoes-geral',
-	));
-	
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Slide de Produto',
-		'menu_title'	=> 'Slide de Produto',
-		'menu_slug' 	=> 'slide-produto',
-		'parent_slug'	=> 'configuracoes-geral',
-	));
-
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Imagem Categoria de Produto',
-		'menu_title'	=> 'Imagem Categoria de Produto',
-		'menu_slug' 	=> 'imagem-categoria-produto',
-		'parent_slug'	=> 'configuracoes-geral',
-	));
-
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Configurações de Lojas',
-		'menu_title'	=> 'Lojas',
-		'menu_slug' 	=> 'lojas',
-		'parent_slug'	=> 'configuracoes-geral',
-	));
-
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Configurações Ícone do Rodapé',
-		'menu_title'	=> 'Ícones do Rodapé',
-		'menu_slug' 	=> 'redes-sociais',
-		'parent_slug'	=> 'configuracoes-geral',
-	));
 }
 
 
@@ -434,8 +386,8 @@ function paginacao() {
             'prev_next' => false,
             'type'  => 'array',
             'prev_next'   => TRUE,
-			'prev_text'    => __('<i class="fa fa-2x fa-angle-left"></i>'),
-			'next_text'    => __('<i class="fa fa-2x fa-angle-right"></i>'),
+			'prev_text'    => __('<i class="fa fa-1x fa-angle-left"></i>'),
+			'next_text'    => __('<i class="fa fa-1x fa-angle-right"></i>'),
         ) );
         if( is_array( $pages ) ) {
             $paged = ( get_query_var('paged') == 0 ) ? 1 : get_query_var('paged');

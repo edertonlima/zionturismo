@@ -112,7 +112,7 @@ $width: 1250px;
 $font-family: 'Signika', sans-serif;
 
 $cor-txt: #5c5c5c;
-$font-size: 1.125rem;
+$font-size: 1rem;
 $cor1: #911f66;
 $cor2: #4d7bb3;
 
@@ -327,6 +327,20 @@ button, .button {
 	}
 
 	&.ver-pacote {
+		background-color: $cor1;
+		text-align: center;
+		font-size: .875rem;
+		color: #ffffff;
+		padding: 0 20px;
+		font-weight: $regular;
+		border-radius: 2px;
+		text-transform: uppercase;
+		line-height: 35px;
+		height: 35px;
+		display: inline-block;
+	}
+
+	&.ver-blog {
 		background-color: $cor1;
 		text-align: center;
 		font-size: .875rem;
@@ -671,7 +685,7 @@ form {
 		border-width: 1px 0 0 0;
 		text-indent: -3%;
 
-		&.missao {
+		&.first-item {
 			border-width: 0;
 		}
 	}
@@ -747,6 +761,7 @@ form {
 			text-align: center;
 			line-height: 34px;
 			display: inline-block;
+			cursor: pointer;
 
 			i {
 				color: #ffffff;
@@ -1207,7 +1222,13 @@ form {
 //.slide-produto
 .slide-produto {
 	width: 100%;
+	overflow: hidden;
+	position: relative;
 	@include box-sizing();
+
+	.owl-item {
+		float: left;
+	}
 
 	.owl-nav {
 		position: absolute;
@@ -1217,6 +1238,7 @@ form {
 		margin-top: -31px;
 
 		.owl-prev, .owl-next {
+			cursor: pointer;
 			width: 23px;
 			height: 63px;
 			background-repeat: no-repeat;
@@ -1238,6 +1260,186 @@ form {
 			float: right;
 			margin-right: 30px;
 			background-image: url('../images/seta-slide-produto-right.png');
+		}
+	}
+}
+
+
+//.blog
+//.pacotes
+.blog {
+	.item-blog {
+		width: 100%;
+		height: auto;
+		margin-bottom: 30px;		
+		display: table;
+		@include box-sizing();
+		@include clear();
+
+		&:last-child {
+			margin-bottom: 0px;
+		}
+
+		img, .info-item {
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		img {
+			width: 45%;
+		}
+
+		.info-item {
+			width: 54%;
+			margin: 40px 0;
+
+			.dias, h3, p {
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+
+			.dias {
+				display: block;
+				margin-bottom: 10px;
+				color: $cor1;
+				font-size: 1rem;
+
+				i {
+					color: $cor1;
+					font-size: 1rem;
+				}
+			}
+
+			h3 {
+				color: #000000;
+				background-color: transparent;
+				height: auto;
+				display: block;
+				border-radius: none;
+				margin: 0 0 15px;
+				font-size: 2em;
+				line-height: 2rem;
+				letter-spacing: -1px;
+				text-align: left;
+			}
+
+			p {
+				color: #999999;
+				font-size: 1rem;
+				line-height: 1.125rem;
+				margin-bottom: 20px;
+			}
+
+			.ver-blog {
+				margin-left: 20px;
+			}
+
+			.redes {
+				display: inline-block;
+				margin-left: 20px;
+				top: 5px;
+				position: relative;
+
+				i {
+					font-size: 1.75rem;
+					color: $cor1;
+					padding: 0 3px;
+				}
+
+				span {
+					font-size: .875rem;
+					display: inline-block;
+					top: -5px;
+					position: relative;
+					color: $cor1;
+					margin-right: 10px;
+				}
+			}
+
+			&.no-image {
+				border: 1px solid #e7e7e7;
+				padding: 40px;
+				width: 100%;
+				display: block;
+				text-align: center;
+				@include box-sizing();
+
+				h3 {
+					text-align: center;
+				}
+			}
+		}
+
+		&.det-blog {
+			text-align: left;
+			img {
+				display: block;
+				max-width: 100%;
+				margin: 0 auto;
+				width: auto;
+			}
+
+			.info-item {
+				padding: 40px;
+				width: 100%;
+				display: block;
+				@include box-sizing();
+
+				h3, p {
+					text-align: justify;
+				}
+			}
+		}
+	}
+}
+
+//.paginação
+.paginacao {
+	width: 100%;
+	text-align: center;
+	margin: 30px 0;
+
+	li {
+		display: inline-block;
+		margin: 0 2px;
+	}
+
+	a, span {
+		padding: 5px 10px;
+	}
+
+	span {
+		color: $cor1;
+	}
+
+	a {
+		background-color: $cor1;
+		color: #ffffff;
+	}
+
+	i {
+		color: #ffffff;
+	}
+
+	a:hover {
+		background-color: darken($cor1, 10%);
+	}
+
+	a.off:hover {
+		background-color: $cor1;						
+	}
+}
+
+.item-servico, .item-pacotes {
+	h2 {
+		width: 100%;
+		text-indent: 0;
+		margin-left: 0px;
+	}
+
+	&:first-child {
+		h2 {
+			border-top: 0;
 		}
 	}
 }

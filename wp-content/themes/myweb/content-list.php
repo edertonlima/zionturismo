@@ -1,21 +1,20 @@
-<article class="post na-midia">
-	<?php $imagem = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'medium' );  ?>
+<article class="item-blog">
 		
-	<header class="img-item <?php if(get_field('video_release')){ echo 'video'; } ?>">
-		<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-			<?php if($imagem[0]){ ?>
-				<span style="background-image: url('<?php echo $imagem[0]; ?>');"></span>
-			<?php }
-			if(get_field('video_release')){ ?>
-				<i class="fa fa-play" aria-hidden="true"></i>
-			<?php } ?>
-		</a>
-	</header>
+	<?php $imagem = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'medium' );  ?>
+	<?php if($imagem[0]){ ?>
+		<img src="<?php echo get_template_directory_uri(); ?>/assets/images/img-blog1.jpg" alt="">
+	<?php } ?>
 
-	<div class="info-item">
-		<span class="date"><?php echo get_the_date(); ?></span>
-		<h3><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h3>
-		<p><?php the_field('descricao_release'); ?></p>
-		<a href="<?php the_permalink(); ?>" title="SAIBA MAIS" class="saiba-mais">SAIBA MAIS</a>
-	</div>	
+	<div class="info-item <?php if(!$imagem[0]){ echo 'no-image'; } ?>">
+		<span class="dias"><i class="fa fa-calendar" aria-hidden="true"></i> <?php echo get_the_date(); ?></span>
+		<h3><?php the_title(); ?></h3>
+		<p><?php the_field('descricao_blog'); ?></p>
+		<a href="<?php the_permalink(); ?>" class="button ver-blog" title="VER MAIS">VER MAIS</a>
+		<div class="redes">
+			<span>Compartilhe: </span>
+			<a href="javascript:" title="Facebook"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+			<a href="javascript:" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+		</div>
+	</div>
+
 </article>
