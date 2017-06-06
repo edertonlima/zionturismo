@@ -9,8 +9,13 @@
 		<h3><?php the_title(); ?></h3>
 		<p><?php the_field('descricao_pacotes'); ?></p>
 		<div class="det-item">
-			<span class="info-pacote"><i class="fa fa-clock-o" aria-hidden="true"></i> 11 noites</span>
-			<span class="info-pacote"><i class="fa fa-globe" aria-hidden="true"></i> Orlando, FL</span>
+			<?php if(get_field('duracao')){ ?>
+				<span class="info-pacote"><i class="fa fa-clock-o" aria-hidden="true"></i><?php the_field('duracao'); ?> </span>
+			<?php } ?>
+
+			<?php if(get_field('localizacao')){ ?>
+				<span class="info-pacote"><i class="fa fa-globe" aria-hidden="true"></i> <?php the_field('localizacao'); ?></span>
+			<?php } ?>
 		</div>
 	</div>
 	<div class="preco">
@@ -20,22 +25,3 @@
 	</div>
 
 </article>
-
-
-
-<?php /*
-<li>
-	<a href="<?php echo get_permalink(); ?>" title="<?php the_title(); ?>">
-		<?php $imgPage = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail' ); ?>
-		<?php if($imgPage){ ?>
-			<img src="<?php if($imgPage[0]){ echo $imgPage[0]; } ?>" alt="<?php the_title(); ?>">
-		<?php } ?>
-
-		<div class="cont-list-prod">
-			<h3><?php the_title(); ?></h3>
-			<p><?php the_field('descrição_curta_produto'); ?></p>
-		</div>
-	</a>
-</li>
-
-*/ ?>

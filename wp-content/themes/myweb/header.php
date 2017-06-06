@@ -204,5 +204,28 @@
 			</div>	
 		</section>
 
-		<section class="img-capa" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/img-capa.jpg');"></section>
+		<?php 
+			$url_capa = '';
+			if(is_page()){
+				$capa_page = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );
+				$url_capa = $capa_page[0];
+			}
+
+			if($post->post_type == 'pacotes'){
+				$url_capa = get_field('capa_pacotes','option');
+			}
+
+			if($post->post_type == 'servicos'){
+				$url_capa = get_field('capa_servicos','option');
+			}
+
+			if((is_category()) or (is_single())){
+				$url_capa = get_field('capa_blog','option');
+			}
+
+			if($url_capa == ''){
+				$url_capa = get_template_directory_uri().'/assets/images/img-capa.jpg';
+			}
+		?>
+		<section class="img-capa" style="background-image: url('<?php echo $url_capa; ?>');"></section>
 	</header>

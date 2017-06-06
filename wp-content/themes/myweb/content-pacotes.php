@@ -1,96 +1,167 @@
+<?php
+	$args = array( 'post_type' => 'pacotes', 'posts_per_page' => 10 );
+	$pacotes = new WP_Query( $args );
+	$count_pacote = 0;
+	while ( $pacotes->have_posts() ) : $pacotes->the_post();
+		if(get_field('destaque')){
+			$count_pacote = $count_pacote+1;
+		}
+	endwhile;
+?>
+
 <section class="section det-pacote pacotes">
 	<div class="container">
 
 		<div class="row">
-			<div class="col-9">
-				<div class="slide-produto owl-carousel owl-theme">
-					<?php for($i=1; $i<=3; $i++){ ?>
-					<div class="item">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/slide-produto<?php echo $i; ?>.jpg" alt="">
+		
+			<?php if($count_pacote > 0){ 
+				echo '<div class="col-9">';
+			}else{ 
+				echo '<div class="col-1">&nbsp</div><div class="col-10">';
+			} ?>			
+
+				<?php $images = get_field('galeria_pacotes');
+				if( $images ): ?>
+					<div class="slide-produto owl-carousel owl-theme">
+						<?php $qtdImages = count($images);
+							foreach( $images as $image ): 
+							$slide = $slide+1; ?>
+
+							<div class="item">
+								<img src="<?php echo $image['url']; ?>" alt="">
+							</div>
+
+						<?php endforeach; ?>
 					</div>
+				<?php endif; ?>
+
+				<div class="det-item">
+					<?php if(get_field('duracao')){ ?>
+						<span class="info-pacote">
+							<i class="fa fa-clock-o" aria-hidden="true"></i>
+							<div class="tit-info">
+								<?php the_field('duracao'); ?> <span class="complemento">Duração</span>
+							</div>
+						</span>
+					<?php } ?>
+
+					<?php if(get_field('localizacao')){ ?>
+						<span class="info-pacote">
+							<i class="fa fa-globe" aria-hidden="true"></i>
+							<div class="tit-info">
+								<?php the_field('localizacao'); ?> <span class="complemento">Localização</span>
+							</div>
+						</span>
+					<?php } ?>
+
+					<?php if(get_field('parcelamento')){ ?>
+						<span class="info-pacote">
+							<i class="fa fa-credit-card" aria-hidden="true"></i>
+							<div class="tit-info">
+								<?php the_field('parcelamento'); ?> <span class="complemento">Parcelamento</span>
+							</div>
+						</span>
+					<?php } ?> 
+
+					<?php if(get_field('data')){ ?>
+						<span class="info-pacote">
+							<i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+							<div class="tit-info">
+								<?php $date = explode("/", get_field('data')); 
+								echo $date[0].' de '.$date[1].', '.$date[2]; ?>
+								 <span class="complemento">Data</span>
+							</div>
+						</span>
 					<?php } ?>
 				</div>
 
-				<div class="det-item">
-					<span class="info-pacote">
-						<i class="fa fa-clock-o" aria-hidden="true"></i>
-						<div class="tit-info">
-							11 noites <span class="complemento">Duração</span>
-						</div>
-					</span>
-
-					<span class="info-pacote">
-						<i class="fa fa-globe" aria-hidden="true"></i>
-						<div class="tit-info">
-							Orlando, FL <span class="complemento">Localização</span>
-						</div>
-					</span>
-
-					<span class="info-pacote">
-						<i class="fa fa-credit-card" aria-hidden="true"></i>
-						<div class="tit-info">
-							até 10x sem juros <span class="complemento">Parcelamento</span>
-						</div>
-					</span>
-
-					<span class="info-pacote">
-						<i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-						<div class="tit-info">
-							02 de Setembro <span class="complemento">Datas</span>
-						</div>
-					</span>
-				</div>
-
-				<p>Confira os detalhes da excursão para Disney Orlando abaixo e solicite cotação da sua cidade ou em diferentes datas:</p>
+				<p><?php the_field('conteudo_pacotes'); ?></p>
 
 				<ul class="info-tecnico">
-					<li class="item">	
-						<span class="tit-info">AÉREO</span>
-						<ul>
-							<li>Consulte valores pela saída de sua cidade. Fale com uma de nossas consultoras</li>
-						</ul>
-					</li>
-					<li class="item">
-						<span class="tit-info">INCLUSO</span>
-						<ul class="ico">
-							<li><i class="fa fa-check" aria-hidden="true"></i> 11 noites de hospedagem no Disney's All Star Movies Resort</li>
-							<li><i class="fa fa-check" aria-hidden="true"></i> 4 dias de Ingresso Disney World (Magic Kingdom, EPCOT, Hollywood Studios e Animal Kingdom)</li>
-						</ul>
-					</li>
-					<li class="item">
-						<span class="tit-info">NÃO INCLUSO</span>
-						<ul class="ico">
-							<li><i class="fa fa-close" aria-hidden="true"></i> Passagem aérea (consulte saída de sua cidade com nossas consultoras)</li>
-							<li><i class="fa fa-close" aria-hidden="true"></i> Taxas de embarque</li>
-							<li><i class="fa fa-close" aria-hidden="true"></i> Despesas pessoais</li>
-						</ul>
-					</li>
-					<li class="item">	
-						<span class="tit-info">ROTEIRO</span>
-						<ul class="roteiro">
-							<li><strong>DIA 03/09 - EMBARQUE E CHEGADA</strong> E finalmente chegou o dia do nosso embarque! Orlando nos espera! O embarque será no dia 02/09 a noite ou no dia 03/09 pela manhã, direto de sua capital para a cidade dos sonhos. Boa viagem! Chegada e acomodação no hotel, jantar no hotel. Acompanhamento desde o Brasil sob coordenação de Joice Ferreira e sua equipe.</li>
-							<li><strong>DIA 03/09 - EMBARQUE E CHEGADA</strong> E finalmente chegou o dia do nosso embarque! Orlando nos espera! O embarque será no dia 02/09 a noite ou no dia 03/09 pela manhã, direto de sua capital para a cidade dos sonhos. Boa viagem! Chegada e acomodação no hotel, jantar no hotel. Acompanhamento desde o Brasil sob coordenação de Joice Ferreira e sua equipe.</li>
-						</ul>
-					</li>
+					
+					<!-- aereo -->
+					<?php if( have_rows('aereo') ): ?>
+						<li class="item">	
+							<span class="tit-info">AÉREO</span>
+							<ul>								
+								<?php while ( have_rows('aereo') ) : the_row(); ?>
+									<li><?php the_sub_field('conteudo'); ?></li>
+								<?php endwhile; ?>
+							</ul>
+						</li>
+					<?php endif; ?>
+					<!-- aereo -->
+
+					<!-- incluso -->
+					<?php if( have_rows('incluso') ): ?>
+						<li class="item">	
+							<span class="tit-info">INCLUSO</span>
+							<ul class="ico">								
+								<?php while ( have_rows('incluso') ) : the_row(); ?>
+									<li><i class="fa fa-check" aria-hidden="true"></i> <?php the_sub_field('conteudo'); ?></li>
+								<?php endwhile; ?>
+							</ul>
+						</li>
+					<?php endif; ?>
+					<!-- incluso -->
+
+					<!-- nao_incluso -->
+					<?php if( have_rows('nao_incluso') ): ?>
+						<li class="item">	
+							<span class="tit-info">NÃO INCLUSO</span>
+							<ul class="ico">								
+								<?php while ( have_rows('nao_incluso') ) : the_row(); ?>
+									<li><i class="fa fa-close" aria-hidden="true"></i> <?php the_sub_field('conteudo'); ?></li>
+								<?php endwhile; ?>
+							</ul>
+						</li>
+					<?php endif; ?>
+					<!-- nao_incluso -->
+
+					<!-- roteiro -->
+					<?php if( have_rows('roteiro') ): ?>
+						<li class="item">	
+							<span class="tit-info">ROTEIRO</span>
+							<ul class="roteiro">								
+								<?php while ( have_rows('roteiro') ) : the_row(); ?>
+									<li>
+										<strong><?php the_sub_field('titulo'); ?></strong>
+										<?php the_sub_field('conteudo'); ?>
+									</li>
+								<?php endwhile; ?>
+							</ul>
+						</li>
+					<?php endif; ?>
+					<!-- roteiro -->
+
 				</ul>
 			</div>
+			
+			<?php if($count_pacote > 0){ ?>
+				<div class="col-3">	
 
-			<div class="col-3">					
-				<div class="list-produtos">
-					<h3>PRODUTOS</h3>
-					<div class="box-list-produtos">
-						<?php for($i=1; $i<=4; $i++){ ?>
-						<div class="item-prod">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/img-list-pacote.jpg" alt="">
-							<div class="info-prod">
-								<h4>Ingressos Sea World</h4>
-								<a href="#">Visualizar</a>
-							</div>
+					<div class="list-produtos">
+						<h3>PRODUTOS</h3>
+						<div class="box-list-produtos">
+							<?php while ( $pacotes->have_posts() ) : $pacotes->the_post(); ?>
+								<div class="item-prod">
+									<?php $imagem = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail' );  ?>
+									<?php if($imagem[0]){ ?>
+										<img src="<?php echo $imagem[0]; ?>" alt="">
+									<?php } ?>
+									<div class="info-prod">
+										<h4><?php the_title(); ?></h4>
+										<a href="<?php echo get_permalink(); ?>" title="Visualizar">Visualizar</a>
+									</div>
+								</div>
+							<?php endwhile; ?>
 						</div>
-						<?php } ?>
 					</div>
 				</div>
-			</div>
+			<?php }else{ ?>
+				<div class="col-1"></div>
+			<?php } ?>
+
 		</div>
 
 	</div>

@@ -345,15 +345,6 @@ if( function_exists('acf_add_options_page') ) {
 		'menu_title'	=> 'Catálogos',
 		'parent_slug'	=> 'downloads',
 	));
-
-	acf_add_options_page(array(
-		'page_title' 	=> 'Formulários',
-		'menu_title'	=> 'Formulários',
-		'menu_slug' 	=> 'formularios',
-		'capability'	=> 'edit_posts',
-		'redirect'		=> false,
-		'icon_url' 		=> 'dashicons-admin-comments'
-	));
 	
 	acf_add_options_page(array(
 		'page_title' 	=> 'Configurações',
@@ -366,6 +357,12 @@ if( function_exists('acf_add_options_page') ) {
 	acf_add_options_sub_page(array(
 		'page_title' 	=> 'Configurações Gerais',
 		'menu_title'	=> 'Geral',
+		'parent_slug'	=> 'configuracoes-geral',
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Imagem Topo',
+		'menu_title'	=> 'Imagem Topo',
 		'parent_slug'	=> 'configuracoes-geral',
 	));
 }

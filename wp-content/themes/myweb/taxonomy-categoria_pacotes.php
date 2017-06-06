@@ -1,3 +1,14 @@
+<?php
+	$args = array( 'post_type' => 'pacotes', 'posts_per_page' => 10 );
+	$pacotes = new WP_Query( $args );
+	$count_pacote = 0;
+	while ( $pacotes->have_posts() ) : $pacotes->the_post();
+		if(get_field('destaque')){
+			$count_pacote = $count_pacote+1;
+		}
+	endwhile;
+?>
+
 <?php get_header(); ?>
 
 <div class="container">
@@ -16,7 +27,12 @@
 	<div class="container">
 
 		<div class="row">
-			<div class="col-9">
+
+			<?php if($count_pacote > 0){ 
+				echo '<div class="col-9">';
+			}else{ 
+				echo '<div class="col-1">&nbsp</div><div class="col-10">';
+			} ?>
 
 				<?php while ( have_posts() ) : the_post(); ?>
 
@@ -46,22 +62,31 @@
 				<?php }*/ ?>
 			</div>
 
-			<div class="col-3">					
-				<div class="list-produtos">
-					<h3>PRODUTOS</h3>
-					<div class="box-list-produtos">
-						<?php for($i=1; $i<=4; $i++){ ?>
-						<div class="item-prod">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/img-list-pacote.jpg" alt="">
-							<div class="info-prod">
-								<h4>Ingressos Sea World</h4>
-								<a href="#">Visualizar</a>
-							</div>
+			<?php if($count_pacote > 0){ ?>
+				<div class="col-3">	
+
+					<div class="list-produtos">
+						<h3>PRODUTOS</h3>
+						<div class="box-list-produtos">
+							<?php while ( $pacotes->have_posts() ) : $pacotes->the_post(); ?>
+								<div class="item-prod">
+									<?php $imagem = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail' );  ?>
+									<?php if($imagem[0]){ ?>
+										<img src="<?php echo $imagem[0]; ?>" alt="">
+									<?php } ?>
+									<div class="info-prod">
+										<h4><?php the_title(); ?></h4>
+										<a href="<?php echo get_permalink(); ?>" title="Visualizar">Visualizar</a>
+									</div>
+								</div>
+							<?php endwhile; ?>
 						</div>
-						<?php } ?>
 					</div>
 				</div>
-			</div>
+			<?php }else{ ?>
+				<div class="col-1"></div>
+			<?php } ?>
+
 		</div>
 
 		<?php paginacao(); ?>
