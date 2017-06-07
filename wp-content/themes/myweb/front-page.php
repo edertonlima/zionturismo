@@ -1,10 +1,8 @@
-<?php //get_header(); ?>
+<?php /*
 <!DOCTYPE html>
 
 <html lang="pt-BR" prefix="og: http://ogp.me/ns#">
 
-
-    
 <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -81,26 +79,35 @@
                 </div>    
             </div>
         </header>
-     
+    
+*/ ?>
+
+<?php get_header(); ?>
+
         <section class="slider_full_width">
           <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                </ol>
 
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/zionbanner1.jpg" alt="Slider Promoção Disney">
-                    </div>
-                    <div class="item">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/zionbanner2.jpg" alt="..." >
-                        
-                    </div>
+                    <?php if( have_rows('slide_home','option') ):
+                        $slide = 0;
+                        while ( have_rows('slide_home','option') ) : the_row();
+                            $slide = $slide+1; ?>
+
+                            <div class="item <?php if($slide == 1){ echo 'active'; } ?>">
+                                 <img src="<?php the_sub_field('imagem','option'); ?>">
+                            </div>
+
+                        <?php endwhile;
+                    endif; ?>
                 </div>
+
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <?php for($i=0; $i<$slide; $i++){ ?>
+                        <li data-target="#carousel-example-generic" data-slide-to="<?php echo $i; ?>" class="<?php if($i == 0){ echo 'active'; } ?>"></li>
+                    <?php } ?>
+                </ol>
 
                 <!-- Controls -->
                 <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
@@ -129,7 +136,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+                    <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
                         <div class="row margin-services">
                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                 <div class="icon-service fadeInBlock">
@@ -157,7 +164,7 @@
                                 </div>
                                 <div class="description-service">
                                     <span>
-                                        Na Zion você encontra diversos meios de comunicação - Skype, Chat, Email, Telefone, Whatsapp
+                                        Fale conosco por: Skype, Chat, Email, Telefone, Whatsapp
                                     </span>
                                 </div>
                             </div>
@@ -179,25 +186,28 @@
                                 </div>
                                 <div class="description-service">
                                     <span>
-                                        Somos uma das agências mais utilizadas pelos turistas do Sudeste
+                                        Somos uma das agências mais utilizadas por quem vai para a Disney
                                     </span>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                             <div class="icon-service fadeInBlock">
-                                    <i class="fa fa-desktop" aria-hidden="true"></i> <span>Plataforma</span>
+                                    <i class="fa fa-desktop" aria-hidden="true"></i> <span>Site</span>
                                 </div>
                                 <div class="description-service">
                                     <span>
-                                        Plataforma instrutiva e de fácil usuabilidade na hora da compra
+                                        Plataforma instrutiva e de fácil usabilidade na hora de escolher e comprar seu pacote
                                     </span>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
+                    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                        <iframe width="100%" style="height: 32vh;" src="https://www.youtube.com/embed/TsFPUKB6X_U" frameborder="0" allowfullscreen></iframe>
+                    </div>
                     <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-                        <div class="box-precos fadeInBlock">
+                        <div class="box-precos fadeInBlock" style="display: none;">
                             <div class="panel-form">
                                 <div class="row">
                                     <span class="title-form">
@@ -268,7 +278,7 @@
                                 <h2 class="fadeInBlock">Que tal viajar e ganhar descontos em suas compras?</h2>
                             </div>
                             <div class="row">
-                                <h3 class="fadeInBlock">Na Zion turismo, você compra, ganha descontos, concorre a prêmios e a cada pacote adquirido, o próximo fica por 10% de desconto</h3>
+                                <h3 class="fadeInBlock">Na Zion turismo, você compra, ganha descontos, concorre a prêmios e a cada pacote adquirido, o próximo você ganha um super desconto</h3>
                             </div>
                             <div class="row">
                                 <button> Saiba mais</button>
@@ -443,93 +453,50 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 posts-destaques fadeInBlock">
-                        <div class="content-post">
-                            <div class="row">
-                                <img class="img-responsive" src="<?php echo get_template_directory_uri(); ?>/assets/images/thumb_imagens.png" alt="Pacote Universal - Orlando">
-                            </div>
-                             <div class="row">
-                                    <div class="info">
-                                        <span class="dias"><i class="fa fa-calendar" aria-hidden="true"></i> 12 de Maio, 2017</span>
+
+                    <?php
+                        $args = array( 'post_type' => 'post', 'posts_per_page' => 3 );
+                        $blog = new WP_Query( $args );
+                        while ( $blog->have_posts() ) : $blog->the_post();
+                            $imagem = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'medium' );
+                            if($imagem[0]){ ?>
+
+                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 posts-destaques fadeInBlock">
+                                    <div class="content-post">
+                                        <div class="row">
+                                            <img class="img-responsive" src="<?php echo $imagem[0]; ?>" alt="Pacote Universal - Orlando">
+                                        </div>
+                                         <div class="row">
+                                                <div class="info">
+                                                    <span class="dias"><i class="fa fa-calendar" aria-hidden="true"></i> <?php echo get_the_date(); ?></span>
+                                                </div>
+                                            </div>
+                                        <div class="row">
+                                            <span class="title-post"><?php the_title(); ?></span>
+                                        </div>
+                                         <div class="row">
+                                            <p class="desc-post"><?php the_field('descricao_blog'); ?></p>
+                                        </div>
+                                        <div class="row">
+                                            <a href="<?php the_permalink(); ?>" class="button ver-blog" title="VER MAIS">VER MAIS</a>
+                                            <div class="ico-social">
+                                                <a href="javascript:" title="Facebook" class="social"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+                                                <a href="javascript:" title="Instagram" class="social"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                       
                                     </div>
                                 </div>
-                            <div class="row">
-                                <span class="title-post">Primeiro Post do blog Zion</span>
-                            </div>
-                             <div class="row">
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have words which don't look even slightly believable.</p>
-                            </div>
-                            <div class="row">
-                                <div class="leia-mais">
-                                     <span class="leia-mais">Leia mais</span>
-                                </div>
-                                <div class="ico-social">
-                                    <a href="javascript:" title="Facebook" class="social"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
-                                    <a href="javascript:" title="Instagram" class="social"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                           
-                        </div>
-                    </div>
-                     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 posts-destaques fadeInBlock">
-                        <div class="content-post">
-                            <div class="row">
-                                <img class="img-responsive" src="<?php echo get_template_directory_uri(); ?>/assets/images/thumb_imagens.png" alt="Pacote Universal - Orlando">
-                            </div>
-                             <div class="row">
-                                    <div class="info">
-                                        <span class="dias"><i class="fa fa-calendar" aria-hidden="true"></i> 12 de Maio, 2017</span>
-                                    </div>
-                                </div>
-                            <div class="row">
-                                <span class="title-post">Segundo Post do blog Zion</span>
-                            </div>
-                             <div class="row">
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have words which don't look even slightly believable.</p>
-                            </div>
-                            <div class="row">
-                                <div class="leia-mais">
-                                     <span class="leia-mais">Leia mais</span>
-                                </div>
-                                <div class="ico-social">
-                                    <a href="javascript:" title="Facebook" class="social"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
-                                    <a href="javascript:" title="Instagram" class="social"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                           
-                        </div>
-                    </div>
-                     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 posts-destaques fadeInBlock">
-                        <div class="content-post">
-                            <div class="row">
-                                <img class="img-responsive" src="<?php echo get_template_directory_uri(); ?>/assets/images/thumb_imagens.png" alt="Pacote Universal - Orlando">
-                            </div>
-                             <div class="row">
-                                    <div class="info">
-                                        <span class="dias"><i class="fa fa-calendar" aria-hidden="true"></i> 12 de Maio, 2017</span>
-                                    </div>
-                                </div>
-                            <div class="row">
-                                <span class="title-post">Terceiro Post do blog Zion</span>
-                            </div>
-                             <div class="row">
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have words which don't look even slightly believable.</p>
-                            </div>
-                            <div class="row">
-                                <div class="leia-mais">
-                                     <span class="leia-mais">Leia mais</span>
-                                </div>
-                                <div class="ico-social">
-                                    <a href="javascript:" title="Facebook" class="social"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
-                                    <a href="javascript:" title="Instagram" class="social"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                           
-                        </div>
-                    </div>
+
+                            <?php }
+                        endwhile;
+                    ?>
+
                 </div>
             </div>
         </section>
+
+        <?php /*
         <section id="footer">
             <div class="newsletter">
                 <div class="col-xs-2 col-sm-2 col-md-4 col-lg-4">
@@ -601,7 +568,10 @@
                 </div>
             </div>
         </section>
-    </body>
+    */ ?>
+
+    <?php get_footer(); ?>
+
     <script src="<?php echo get_template_directory_uri(); ?>/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="https://use.fontawesome.com/a145708429.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -617,6 +587,3 @@
     js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.9&appId=225132384553127";
     fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
-</html>
-
-<?php //get_footer(); ?>

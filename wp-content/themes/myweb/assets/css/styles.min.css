@@ -20,7 +20,7 @@ body {
 }
 
 section:not(.slider_full_width) {
-    padding: 1.5em 0
+    padding: 5px 0;
 }
 
 section .row {
@@ -28,7 +28,7 @@ section .row {
 }
 
 .margin-services {
-    margin-bottom: 90px!important
+    margin-bottom: 30px!important
 }
 
 h2,
@@ -194,16 +194,17 @@ span.title-form {
     font-size: 2em;
     color: #fff;
     text-align: center;
-    
+    line-height: 30px;    
 }
 .icon-service .fa{
-    font-size: 2em;
+    font-size: 1.225em;
     display: inline-block;
     width: 100%;
+    line-height: 29px;
 }
 
 .icon-service span {
-    font-size: 1em;
+    font-size: .75em;
     display: inline-block;
     font-weight: 600;
 }
@@ -213,6 +214,8 @@ span.title-form {
     font-family: 'Work Sans', sans-serif;
     font-weight: 400;
     text-align: center;
+    font-size: 12px;
+    line-height: 17px;
 }
 
 .dropdown-destinos,
@@ -772,6 +775,330 @@ div#copyright {
         display: none
     }
 }
-.fadeInBlock {
-    opacity:0;
+
+@import url("https://fonts.googleapis.com/css?family=Signika");
+.header .container {
+    max-width: 1250px;
+    width: 100%;
+    padding: 0 80px;
+}
+
+.header h1 {
+  width: 190px;
+  float: left;
+  margin: 0;
+}
+
+.header h1 img {
+  width: 100%;
+}
+
+/* line 478, ../sass/style.scss */
+.top-menu {
+  background-color: #911f66;
+  height: 40px;
+  text-align: right;
+  padding: 0px!important;
+  font-family: "Signika", sans-serif;
+}
+/* line 483, ../sass/style.scss */
+.top-menu div:not(.container) {
+  display: inline-block;
+}
+/* line 486, ../sass/style.scss */
+.top-menu div:not(.container).regiao {
+  float: left;
+}
+/* line 489, ../sass/style.scss */
+.top-menu div:not(.container).regiao a {
+  width: 24px;
+  height: 17px;
+  margin-top: -1px;
+  display: inline-block;
+}
+/* line 499, ../sass/style.scss */
+.top-menu div:not(.container).telefones span::after {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  margin: 0 10px 0 17px;
+  background-color: #ffffff;
+  height: 15px;
+  position: relative;
+  top: 3px;
+}
+/* line 510, ../sass/style.scss */
+.top-menu div:not(.container).telefones span:last-child::after {
+  display: none;
+}
+/* line 516, ../sass/style.scss */
+.top-menu div:not(.container).email, .top-menu div:not(.container).redes-sociais {
+  margin-left: 60px;
+}
+/* line 521, ../sass/style.scss */
+.top-menu div:not(.container).redes-sociais i {
+  font-size: 22px;
+  position: relative;
+  top: 3px;
+  margin-left: 5px;
+  color: #ffffff;
+}
+/* line 531, ../sass/style.scss */
+.top-menu span, .top-menu a {
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 38px;
+}
+
+/* line 539, ../sass/style.scss */
+.menu {
+  width: 100%;
+  margin: 20px auto;
+  display: table;
+  font-family: "Signika", sans-serif;
+  margin: 0;
+}
+/* line 544, ../sass/style.scss */
+.menu .nav {
+  height: 30px;
+  float: right;
+  margin-top: 45px;
+}
+/* line 549, ../sass/style.scss */
+.menu .nav ul {
+  width: 100%;
+}
+/* line 553, ../sass/style.scss */
+.menu .nav li {
+  display: inline-block;
+  line-height: 30px;
+}
+/* line 557, ../sass/style.scss */
+.menu .nav li a {
+  font-size: 20px;
+  color: #911f66;
+  padding: 0 10px;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+
+
+
+/* line 569, ../sass/style.scss */
+.footer {
+  background: url("../images/bg_footer.png") no-repeat top center transparent;
+  margin-top: -60px;
+  padding-top: 1px;
+    clear: both;
+    float: left;
+    width: 100%;
+    font-family: "Signika", sans-serif;
+}
+.footer .row [class*="col-"] {
+  float: left;
+  padding-right: 15px;
+  padding-left: 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.footer .row .col-4 {
+  width: 33.33333%;
+}
+.footer .row .col-6 {
+  width: 50%;
+}
+/* line 574, ../sass/style.scss */
+.footer .bg-footer {
+  width: 100%;
+  background-color: #911f66;
+  margin-top: 57px;
+  padding-top: 25px;
+}
+/* line 581, ../sass/style.scss */
+.footer .info-footer {
+  padding-bottom: 25px;
+  vertical-align: middle;
+}
+/* line 586, ../sass/style.scss */
+.footer h2, .footer span, .footer a, .footer p, .footer i {
+  color: #ffffff;
+}
+/* line 590, ../sass/style.scss */
+.footer h2 {
+  font-size: 27px;
+  text-align: left;
+  border: none;
+  padding: 0;
+  margin: 0 0 10px 0;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+/* line 599, ../sass/style.scss */
+.footer p, .footer a {
+  font-size: 16px;
+  line-height: 16px;
+  font-family: "Signika", sans-serif;
+}
+/* line 604, ../sass/style.scss */
+.footer span {
+  width: 100%;
+  margin-bottom: 10px;
+  display: block;
+  font-size: 16px;
+  line-height: 16px;
+  font-family: "Signika", sans-serif;
+}
+/* line 609, ../sass/style.scss */
+.footer span i {
+  margin-right: 5px;
+  font-size: 16px;
+  line-height: 16px;
+}
+/* line 613, ../sass/style.scss */
+.footer span:last-child {
+  margin-bottom: 0px;
+}
+/* line 618, ../sass/style.scss */
+.footer .copy {
+  border-top: 1px solid #bb2884;
+  width: 100%;
+  display: block;
+  clear: both;
+}
+/* line 98, ../sass/style.scss */
+.footer .copy:before, .footer .copy:after {
+  display: table;
+  content: '';
+}
+/* line 103, ../sass/style.scss */
+.footer .copy:after {
+  clear: both;
+}
+/* line 625, ../sass/style.scss */
+.footer .copy .col-6 p {
+  min-height: 38px;
+  line-height: 38px;
+  display: block;
+}
+/* line 631, ../sass/style.scss */
+.footer .copy .col-6 p, .footer .copy .col-6 a {
+  font-size: 14px;
+}
+/* line 635, ../sass/style.scss */
+.footer .copy .col-6:last-child {
+  text-align: right;
+}
+
+
+/* line 693, ../sass/style.scss */
+.section.news {
+  background-image: url("../images/bg_news.png");
+  background-repeat: repeat;
+  padding: 30px 0 70px;
+  margin-top: 70px;
+  border-top: 2px solid #e7e7e7;
+  font-family: "Signika", sans-serif;
+}
+/* line 700, ../sass/style.scss */
+.section.news h2 {
+  text-transform: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  text-indent: 0;
+  line-height: 40px;
+  text-align: center;
+  width: 100%;
+}
+/* line 711, ../sass/style.scss */
+.section.news p {
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+}
+/* line 717, ../sass/style.scss */
+.section.news form {
+  text-align: center;
+  background-color: transparent;
+}
+
+.section.news input[type="text"] {
+    width: 100%;
+    font-size: 14px;
+    padding: 0 15px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: "Signika", sans-serif;
+}
+
+.section.news input.email-news[type="text"] {
+    border-bottom: 1px solid #eeeeee;
+    height: 45px;
+    line-height: 45px;
+    background-color: #ffffff;
+    color: #911f66;
+}
+
+.section.news button, .button {
+    cursor: pointer;
+    font-family: "Signika", sans-serif;
+}
+
+.section.news button.news-enviar, .button.news-enviar {
+    background-color: #911f66;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    font-size: 14px;
+    color: #ffffff;
+    padding: 0 20px;
+    font-weight: 700;
+    border-radius: 2px;
+    width: auto;
+}
+
+/* line 721, ../sass/style.scss */
+.section.news input {
+  width: 300px!important;
+  border-radius: 2px!important;
+}
+
+button.ver-blog, .button.ver-blog {
+    background-color: #911f66;
+    text-align: center;
+    font-size: 14px;
+    color: #ffffff;
+    padding: 0 20px;
+    font-weight: 500;
+    border-radius: 2px;
+    text-transform: uppercase;
+    line-height: 35px;
+    height: 35px;
+    display: inline-block;
+    border-radius: 2px;
+}
+
+#blog_new_posts .ico-social {
+    float: right;
+    margin-top: 4px;
+}
+
+#blog_new_posts .info .dias, #blog_new_posts .info .dias i {
+    color: #911f66;
+}
+#blog_new_posts .title-post {
+    color: #000000;
+    line-height: 18px;
+    height: 38px;
+    overflow: hidden;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#blog_new_posts p.desc-post {
+    height: 58px;
+    overflow: hidden;
 }

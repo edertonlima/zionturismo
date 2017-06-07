@@ -39,8 +39,7 @@
 					  'hide_empty' => false, // do not hide empty terms
 					]);
 
-					foreach( $terms as $term ) {
-						while ( have_posts($term) ) : the_post($term); ?>
+					foreach( $terms as $term ) { ?>
 
 							<article class="item-pacotes">
 									
@@ -50,8 +49,7 @@
 
 							</article>
 
-						<?php endwhile;
-					}
+					<?php }
 
 				?>
 			

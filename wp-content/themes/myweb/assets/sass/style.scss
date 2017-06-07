@@ -538,7 +538,7 @@ form {
 //.menu
 .menu {
 	width: 100%;
-	margin: 20px auto;
+	margin: 5px auto;
 	display: table;
 
 	.nav {
@@ -766,6 +766,10 @@ form {
 			i {
 				color: #ffffff;
 				font-size: 1.5rem;
+			}
+
+			&.disabled {
+				display: none;
 			}
 		}
 
@@ -1247,6 +1251,10 @@ form {
 			i {
 				color: #ffffff;
 				font-size: 1.5rem;
+			}
+
+			&.disabled {
+				display: none;
 			}
 		}
 

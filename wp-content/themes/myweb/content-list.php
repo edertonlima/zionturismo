@@ -2,7 +2,7 @@
 		
 	<?php $imagem = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'medium' );  ?>
 	<?php if($imagem[0]){ ?>
-		<img src="<?php echo get_template_directory_uri(); ?>/assets/images/img-blog1.jpg" alt="">
+		<img src="<?php echo $imagem[0]; ?>" alt="">
 	<?php } ?>
 
 	<div class="info-item <?php if(!$imagem[0]){ echo 'no-image'; } ?>">

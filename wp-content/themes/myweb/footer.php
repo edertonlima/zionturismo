@@ -28,8 +28,8 @@
 						<h2>Contatos:</h2>
 						<span><i class="fa fa-envelope"></i>contato@zionTurismo.com.br</span>
 						<span><i class="fa fa-skype"></i>zionturismo.skype</span>
-						<span><i class="fa fa-phone"></i>(11) 3445-999</span>
-						<span><i class="fa fa-mobile"></i>(11) 9999-999</span>
+						<span><i class="fa fa-phone"></i>+55 (11) 4118-6261</span>
+						<span><i class="fa fa-whatsapp"></i>+1 (407)967-7788</span>
 					</div>
 
 				</div>

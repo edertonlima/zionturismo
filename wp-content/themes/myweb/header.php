@@ -90,8 +90,15 @@
 
 <title><?php echo $titulo; ?></title>
 
-<!-- CSS -->
-<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/style-page.css" media="screen" />
+
+<?php if(is_front_page()){ ?>
+		<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/styles.min.css">
+        <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/animate.css">
+<?php }else{ ?>
+		<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/style-page.css" media="screen" />
+<?php } ?>
 
 <?php if(is_singular('produto')){ ?>
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/owl.carousel.min.css" type="text/css" media="screen" />
@@ -204,28 +211,30 @@
 			</div>	
 		</section>
 
-		<?php 
-			$url_capa = '';
-			if(is_page()){
-				$capa_page = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );
-				$url_capa = $capa_page[0];
-			}
+		<?php
+			if(!is_front_page()){
+				$url_capa = '';
+				if(is_page()){
+					$capa_page = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );
+					$url_capa = $capa_page[0];
+				}
 
-			if($post->post_type == 'pacotes'){
-				$url_capa = get_field('capa_pacotes','option');
-			}
+				if($post->post_type == 'pacotes'){
+					$url_capa = get_field('capa_pacotes','option');
+				}
 
-			if($post->post_type == 'servicos'){
-				$url_capa = get_field('capa_servicos','option');
-			}
+				if($post->post_type == 'servicos'){
+					$url_capa = get_field('capa_servicos','option');
+				}
 
-			if((is_category()) or (is_single())){
-				$url_capa = get_field('capa_blog','option');
-			}
+				if((is_category()) or (is_single())){
+					$url_capa = get_field('capa_blog','option');
+				}
 
-			if($url_capa == ''){
-				$url_capa = get_template_directory_uri().'/assets/images/img-capa.jpg';
-			}
-		?>
-		<section class="img-capa" style="background-image: url('<?php echo $url_capa; ?>');"></section>
+				if($url_capa == ''){
+					$url_capa = get_template_directory_uri().'/assets/images/img-capa.jpg';
+				} ?>
+				<section class="img-capa" style="background-image: url('<?php echo $url_capa; ?>');"></section>
+
+			<?php } ?>
 	</header>
