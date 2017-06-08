@@ -1421,7 +1421,7 @@ form {
 	}
 
 	a {
-		background-color: $cor1;
+		background-color: $cor1; 
 		color: #ffffff;
 	}
 
@@ -1450,4 +1450,44 @@ form {
 			border-top: 0;
 		}
 	}
+
+	.img-servico, .cont-servico-list {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	.img-servico {
+		width: 36%;
+	}
+
+	.cont-servico-list {
+		width: 60%;
+		margin-left: 3%;
+
+		&.no-image {
+			width: 100%;
+			margin: 0;
+		}
+
+		&.no-image-list {
+			width: 97%;
+		}
+	}
+}
+
+.item-servico {
+	border-top: 1px solid #e7e7e7;
+	margin-top: 60px;
+	padding-top: 60px;
+
+	h2 {
+		border: none;
+		padding: 0;
+		margin-top: 0;
+	}
+	&:first-child {
+		border-top: 0;
+		margin-top: 0px;
+		padding-top: 0px;
+	}	
 }

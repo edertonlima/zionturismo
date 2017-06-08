@@ -130,9 +130,12 @@
                         <div class="row">
                             <h2>Porquê a Zion Turismo?</h2>
                         </div>
-                        <div class="row">
-                            <h3>A Zion turismo oferece os melhores pacotes com preços acessíveis</h3>
-                        </div>
+
+                        <?php if(get_field('descricao_pq','option')){ ?>
+                            <div class="row">
+                                <h3><?php the_field('descricao_pq','option'); ?></h3>
+                            </div>
+                        <?php } ?>
                     </div>
                 </div>
                 <div class="row">
@@ -140,31 +143,31 @@
                         <div class="row margin-services">
                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                 <div class="icon-service fadeInBlock">
-                                    <i class="fa fa-globe" aria-hidden="true"></i> <span>Destinos famosos</span>
+                                    <?php the_field('icone_1_pq','option'); ?> <span><?php the_field('tit_1_pq','option'); ?></span>
                                 </div>
                                 <div class="description-service">
                                     <span>
-                                        Dinsey, Orlando, Europa, Las Vegas, New York
+                                        <?php the_field('desc_1_pq','option'); ?>
                                     </span>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                            <div class="icon-service fadeInBlock">
-                                    <i class="fa fa-money" aria-hidden="true"></i> <span>O mais em conta</span>
+                                <div class="icon-service fadeInBlock">
+                                    <?php the_field('icone_2_pq','option'); ?> <span><?php the_field('tit_2_pq','option'); ?></span>
                                 </div>
                                 <div class="description-service">
                                     <span>
-                                        Diversas formas de pagamento e descontos incomparáveis
+                                        <?php the_field('desc_2_pq','option'); ?>
                                     </span>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                            <div class="icon-service fadeInBlock">
-                                    <i class="fa fa-user" aria-hidden="true"></i> <span>Atendimento</span>
+                                <div class="icon-service fadeInBlock">
+                                    <?php the_field('icone_3_pq','option'); ?> <span><?php the_field('tit_3_pq','option'); ?></span>
                                 </div>
                                 <div class="description-service">
                                     <span>
-                                        Fale conosco por: Skype, Chat, Email, Telefone, Whatsapp
+                                        <?php the_field('desc_3_pq','option'); ?>
                                     </span>
                                 </div>
                             </div>
@@ -172,41 +175,42 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                 <div class="icon-service fadeInBlock">
-                                    <i class="fa fa-heart" aria-hidden="true"></i> <span>Compromisso</span>
+                                    <?php the_field('icone_4_pq','option'); ?> <span><?php the_field('tit_4_pq','option'); ?></span>
                                 </div>
                                 <div class="description-service">
                                     <span>
-                                        Somos apaixonados pelos nossos serviços, fazemo-os com todo amor
+                                        <?php the_field('desc_4_pq','option'); ?>
                                     </span>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                            <div class="icon-service fadeInBlock">
-                                    <i class="fa fa-star-half-o" aria-hidden="true"></i> <span>O mais utilizado</span>
+                                <div class="icon-service fadeInBlock">
+                                    <?php the_field('icone_5_pq','option'); ?> <span><?php the_field('tit_5_pq','option'); ?></span>
                                 </div>
                                 <div class="description-service">
                                     <span>
-                                        Somos uma das agências mais utilizadas por quem vai para a Disney
+                                        <?php the_field('desc_5_pq','option'); ?>
                                     </span>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                            <div class="icon-service fadeInBlock">
-                                    <i class="fa fa-desktop" aria-hidden="true"></i> <span>Site</span>
+                                <div class="icon-service fadeInBlock">
+                                    <?php the_field('icone_6_pq','option'); ?> <span><?php the_field('tit_6_pq','option'); ?></span>
                                 </div>
                                 <div class="description-service">
                                     <span>
-                                        Plataforma instrutiva e de fácil usabilidade na hora de escolher e comprar seu pacote
+                                        <?php the_field('desc_6_pq','option'); ?>
                                     </span>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
-                        <iframe width="100%" style="height: 32vh;" src="https://www.youtube.com/embed/TsFPUKB6X_U" frameborder="0" allowfullscreen></iframe>
+                    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 video-home">
+                        <?php the_field('video_pq','option'); ?>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+
+                    <?php /*<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
                         <div class="box-precos fadeInBlock" style="display: none;">
                             <div class="panel-form">
                                 <div class="row">
@@ -262,11 +266,11 @@
                                 </form>
                             </div>
                         </div>
-                    </div>
+                    </div>*/?>
                 </div>
             </div>
         </section>
-        <section class="call_to_action" data-speed="20">
+        <section class="call_to_action" data-speed="20" style="background-image: url('<?php the_field('background_cta','option'); ?>');">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row">
@@ -275,181 +279,82 @@
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 text-center">
                             <div class="row">
-                                <h2 class="fadeInBlock">Que tal viajar e ganhar descontos em suas compras?</h2>
+                                <h2 class="fadeInBlock"><?php the_field('titulo_cta','option'); ?></h2>
                             </div>
                             <div class="row">
-                                <h3 class="fadeInBlock">Na Zion turismo, você compra, ganha descontos, concorre a prêmios e a cada pacote adquirido, o próximo você ganha um super desconto</h3>
+                                <h3 class="fadeInBlock"><?php the_field('descricao_cta','option'); ?></h3>
                             </div>
                             <div class="row">
-                                <button> Saiba mais</button>
+                                <a href="<?php the_field('link_cta','option'); ?>" title="Saiba mais"></a><button> Saiba mais</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section id="featured_pacotes">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">    
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 text-center">
-                            <div class="row">
-                                <h2>Pacotes em destaque</h2>
-                            </div>
-                            <div class="row">
-                                <h3>Confira os pacotes mais comprados</h3>
-                            </div>
-                        </div>
-                </div>
-                <div class="row">
-                     <div class="navegacao-carrousel">
-                        <div class="owl-carousel owl-theme">
-                            <div class="item">
-                                <a id="menu-sp"><span>São Paulo</span></a>
-                            </div>
-                            <div class="item">
-                            <a id="menu-orlando"><span>Orlando</span></a>
-                            </div>
-                            <div class="item">
-                                <a id="#menu-santrope"><span>Santrope</span></a>
-                            </div class="item">
-                            <div class="item">
-                                <a id="#menu-newyork"><span>Nova York</span></a>
-                            </div>
-                            <div class="item">
-                                <a id="#menu-franca"><span>França</span></a>
-                            </div>
-                            <div class="item">
-                                <a id="#menu-dubai"><span>Dubai</span></a>
-                            </div>
-                            <div class="item">
-                                <a id="#menu-alemanha"><span>Alemanha</span></a>
-                            </div>
-                            <div class="item">
-                                <a id="#menu-pais"><span>País 1212</span></a>
-                            </div>
-                             <div class="item">
-                                <a id="#menu-pais2"><span>País 222</span></a>
-                            </div>
-                             <div class="item">
-                                <a id="#menu-pais3"><span>País 666</span></a>
-                            </div>
-                             <div class="item">
-                               <a id="#menu-pais4"><span>País 6999</span></a>
-                            </div>
-                        </div>
+
+
+        <section class="box-section list-post pacotes">
+            <ul class="slide-pacotes owl-carousel owl-theme">
+
+                <?php
+                    $args = array( 'post_type' => 'pacotes', 'posts_per_page' => '-1');
+                    $pacotes = new WP_Query( $args );
+                    $local_pacote = 0;
+                    while ( $pacotes->have_posts() ) : $pacotes->the_post(); ?>
+
+                        <li class="item local-select" local="<?php echo $local_pacote; ?>" data-slide-number="<?php echo $local_pacote; ?>" rel="<?php the_field('localizacao'); ?>"><span><?php the_field('localizacao'); ?></span></li>
                         
-                    </div>
-                    <div class="icon-drag"> 
-                        <i class="animated infinite fadeInLeft fa fa-hand-o-up" aria-hidden="true"></i>
-                    </div>
-                    <!-- fim carousel -->
-                    <div id="ibiza" class="pacotes default">
-                        <div class="pacotes-destaques">
-                            <div class="content-blog">
-                                <div class="row">
-                                    <img class="img-responsive" src="<?php echo get_template_directory_uri(); ?>/assets/images/thumb_imagens.png" alt="Pacote Universal - Orlando">
+                        <?php 
+                        $local_pacote = $local_pacote+1;
+                    endwhile;
+                ?>
+            </ul>
+
+            <div class="container">
+                <div class="slide-det-pacote list-pacotes-local owl-carousel owl-theme">
+
+                    <?php while ( $pacotes->have_posts() ) : $pacotes->the_post(); ?>
+                    
+                        <div class="item item-det-pacotes" rel="<?php the_field('localizacao'); ?>">                        
+                            <div id="" class="pacotes default">
+                                <div class="pacotes-destaques">
+                                    <div class="content-blog">
+                                        <div class="row">
+
+                                            <?php $imagem = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'medium' );  ?>
+                                            <?php if($imagem[0]){ ?>
+                                                <img src="<?php echo $imagem[0]; ?>" alt="<?php the_title(); ?>" class="img-responsive">
+                                            <?php } ?>
+
+                                        </div>
+                                        <div class="row">
+                                            <span class="title-pacotes"><?php the_title(); ?></span>
+                                        </div>
+                                        <div class="row">
+                                            <a href="<?php echo get_permalink(); ?>" class="button ver-blog" title="VER PACOTE">VER PACOTE</a>
+                                        </div>
+                                    </div>  
                                 </div>
-                                <div class="row">
-                                    <span class="title-pacotes">Ibiza</span>
-                                </div>
-                                <div class="row">
-                                    <button>Veja mais</button>
-                                </div>
-                            </div>  
+                            </div>
                         </div>
-                    </div>
-                    <div id="santrope" class="pacotes default">
-                        <div class="pacotes-destaques">
-                            <div class="content-blog">
-                                <div class="row">
-                                    <img class="img-responsive" src="<?php echo get_template_directory_uri(); ?>/assets/images/thumb_imagens.png" alt="Pacote Universal - Orlando">
-                                </div>
-                                <div class="row">
-                                    <span class="title-pacotes">Santrope</span>
-                                </div>
-                                <div class="row">
-                                    <button>Veja mais</button>
-                                </div>
-                            </div>  
-                        </div>
-                    </div>
-                    <div id="riodejaneiro" class="pacotes default">
-                        <div class="pacotes-destaques">
-                            <div class="content-blog">
-                                <div class="row">
-                                    <img class="img-responsive" src="<?php echo get_template_directory_uri(); ?>/assets/images/thumb_imagens.png" alt="Pacote Universal - Orlando">
-                                </div>
-                                <div class="row">
-                                    <span class="title-pacotes">Rio de Janeiro</span>
-                                </div>
-                                <div class="row">
-                                    <button>Veja mais</button>
-                                </div>
-                            </div>  
-                        </div>
-                    </div>
-                    <div id="saopaulo" class="pacotes">
-                        <div class="pacotes-destaques">
-                            <div class="content-blog">
-                                <div class="row">
-                                    <img class="img-responsive" src="<?php echo get_template_directory_uri(); ?>/assets/images/thumb_imagens.png" alt="Pacote Universal - Orlando">
-                                </div>
-                                <div class="row">
-                                    <span class="title-pacotes">São Paulo</span>
-                                </div>
-                                <div class="row">
-                                    <button>Veja mais</button>
-                                </div>
-                            </div>  
-                        </div>
-                    </div>
-                    <div id="orlando" class="pacotes">
-                        <div class="pacotes-destaques">
-                            <div class="content-blog">
-                                <div class="row">
-                                    <img class="img-responsive" src="<?php echo get_template_directory_uri(); ?>/assets/images/thumb_imagens.png" alt="Pacote Universal - Orlando">
-                                </div>
-                                <div class="row">
-                                    <span class="title-pacotes">Orlando</span>
-                                </div>
-                                <div class="row">
-                                    <button>Veja mais</button>
-                                </div>
-                            </div>  
-                        </div>
-                    </div>
-                    <div id="newyork" class="pacotes">
-                        <div class="pacotes-destaques">
-                            <div class="content-blog">
-                                <div class="row">
-                                    <img class="img-responsive" src="<?php echo get_template_directory_uri(); ?>/assets/images/thumb_imagens.png" alt="Pacote Universal - Orlando">
-                                </div>
-                                <div class="row">
-                                    <span class="title-pacotes">New York</span>
-                                </div>
-                                <div class="row">
-                                    <button>Veja mais</button>
-                                </div>
-                            </div>  
-                        </div>
-                    </div> 
+
+                <?php endwhile; ?>
+                   
                 </div>
             </div>
         </section>
-        <section id="blog_new_posts">
+
+        <section class="box-section" id="blog_new_posts">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">    
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 text-center">
-                        <div class="row">
+
                             <h2>Blog</h2>
-                        </div>
-                        <div class="row">
                             <h3>Últimas notícias</h3>
-                        </div>
+
                     </div>
                 </div>
                 <div class="row">
@@ -496,80 +401,6 @@
             </div>
         </section>
 
-        <?php /*
-        <section id="footer">
-            <div class="newsletter">
-                <div class="col-xs-2 col-sm-2 col-md-4 col-lg-4">
-                </div>
-                <div class="col-sm-6 col-sm-offset-3">
-                    <div class="row">
-                        <span class="text-newsletter">
-                            Newsletter
-                        </span>
-                    </div>
-                    <div class="row text-center">
-                        <span class="minitext-newsletter">
-                            cadastre seu email novidades
-                        </span>
-                    </div>
-                    <div class="row">
-                        <input type="text" placeholder="Digite seu email"><button class="btn btn-primary fz18 ttu" type="button" id="submitNewsletter">Enviar</button>
-                    </div>
-                </div>
-            </div>
-           <div class="rodape">
-                <div class="container">
-                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                        <div class="row">
-                            <span class="title-section-footer">
-                               Sobre:
-                            </span>
-                        </div>
-                        <div class="row">
-                            <p>
-                                Somos uma agência especializada em desenvolver sonhos.
-                                Entendemos que nossos clientes procuram o melhor  e mais
-                                barato, então resolvemos investir no que há de melhor
-                                com custo benefício excelente.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                        <div class="row">
-                            <span class="title-section-footer">
-                                Siga-nos:
-                            </span>
-                        </div>
-                        <div class="row">
-                            <div class="fb-page" data-href="https://www.facebook.com/zionturismo/?ref=br_rs" data-tabs="p&#xe1;gina" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/zionturismo/?ref=br_rs" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/zionturismo/?ref=br_rs">Zion Turismo</a></blockquote></div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                        <div class="row">
-                            <span class="title-section-footer">
-                                Contatos
-                            </span>
-                        </div>
-                        <div class="row">
-                        <ul>
-                            <li><i class="fa fa-envelope widget-contact-info__item__icon__email"></i>contato@zionTurismo.com.br</li>
-                            <li><i class="fa fa-skype"></i>zionturismo.skype</li>
-                            <li><i class="fa fa-phone"></i>(11)3445-999</li>
-                            <li><i class="fa fa-mobile widget-contact-info__item__icon__mobile" style="font-size:25px;"></i>(11) 9999-999</li>
-                        </ul>
-                        </div>
-                    </div>
-                </div>
-                <div id="copyright">
-                    <div class="container">
-                        <span>Todos os direitos reservados</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-    */ ?>
-
     <?php get_footer(); ?>
 
     <script src="<?php echo get_template_directory_uri(); ?>/node_modules/jquery/dist/jquery.min.js"></script>
@@ -587,3 +418,76 @@
     js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.9&appId=225132384553127";
     fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
+
+    <script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>    
+    <script type="text/javascript">
+        jQuery.noConflict();
+
+        var owl_pac = jQuery('.slide-pacotes');
+        owl_pac.owlCarousel({
+            margin: 0,
+            autoWidth:true,
+            loop: true,
+            center: true,
+            nav:false
+        })
+
+        var owl = jQuery('.slide-det-pacote');
+        owl.owlCarousel({
+            margin: 0,
+            loop: false,
+            center: true,
+            nav:false,
+            responsive: {
+                0: {
+                    items: 3
+                },
+                600: {
+                    items: 3
+                },
+                1000: {
+                    items: 3
+                }
+            }
+        })
+
+        jQuery(document).ready(function(){
+            var local_inicial = jQuery('.slide-pacotes .owl-item.active.center .local-select').attr('rel');
+            local_inicial = '.item-det-pacotes[rel="'+local_inicial+'"]';
+            jQuery('.item-det-pacotes').parent().hide();
+            jQuery(local_inicial).parent().show();
+
+            jQuery('.local-select').click(function(){
+                var id = jQuery(this).attr('local');
+                var local = jQuery(this).attr('rel');
+                local = '.item-det-pacotes[rel="'+local+'"]';
+                jQuery('.slide-pacotes').trigger('to.owl.carousel', id);
+                jQuery('.item-det-pacotes').parent().hide();
+                jQuery(local).parent().show();
+
+                //jQuery('.slide-det-pacote').trigger('refresh.owl.carousel');
+
+                var owl = jQuery('.slide-det-pacote').owlCarousel({
+                    margin: 0,
+                    loop: false,
+                    center: true,
+                    nav:false,
+                    responsive: {
+                        0: {
+                            items: 3
+                        },
+                        600: {
+                            items: 3
+                        },
+                        1000: {
+                            items: 3
+                        }
+                    }
+                });
+                owl.trigger('refresh.owl.carousel');
+            });
+        });
+
+        //jQuery('.slide-det-pacote').trigger('to.owl.carousel', 1); // funca o det pacote
+        //jQuery('.slide-pacotes').trigger('to.owl.carousel', 1); // funca o det pacote
+    </script>

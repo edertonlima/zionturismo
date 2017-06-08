@@ -3,8 +3,19 @@
 
 		<div class="row">
 			<div class="col-12">
-				
-				<p><?php the_field('conteudo_servicos'); ?></p>
+
+				<article class="item-servico">
+					<?php 
+						$imagem = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'medium' );
+						if($imagem[0]){ ?>
+							<img src="<?php echo $imagem[0]; ?>" alt="<?php the_title(); ?>" class="img-servico">
+						<?php } 
+					?>
+
+					<div class="cont-servico-list <?php if(!$imagem[0]){ echo 'no-image'; } ?>">
+						<?php the_field('conteudo_servicos'); ?>
+					</div>
+				</article>
 
 				<div class="quero-servico">
 					<h3>QUERO ESTE SERVIÇO <i class="fa fa-angle-down" aria-hidden="true"></i></h3>

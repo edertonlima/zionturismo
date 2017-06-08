@@ -26,10 +26,25 @@
 
 					<div class="col-4">
 						<h2>Contatos:</h2>
-						<span><i class="fa fa-envelope"></i>contato@zionTurismo.com.br</span>
-						<span><i class="fa fa-skype"></i>zionturismo.skype</span>
-						<span><i class="fa fa-phone"></i>+55 (11) 4118-6261</span>
-						<span><i class="fa fa-whatsapp"></i>+1 (407)967-7788</span>
+						<?php if(get_field('email','option')){ ?>
+							<span><i class="fa fa-envelope"></i> <?php the_field('email','option'); ?></span>
+						<?php } ?>
+
+						<?php if(get_field('skype','option')){ ?>
+							<span><i class="fa fa-skype"></i> <?php the_field('skype','option'); ?></span>
+						<?php } ?>
+
+						<?php if(get_field('tel1','option')){ ?>
+							<span><i class="fa fa-phone"></i> <?php the_field('tel1','option'); ?></span>
+						<?php } ?>
+
+						<?php if(get_field('tel2','option')){ ?>
+							<span><i class="fa fa-phone"></i> <?php the_field('tel2','option'); ?></span>
+						<?php } ?>
+
+						<?php if(get_field('celular','option')){ ?>
+							<span><i class="fa fa-whatsapp"></i> <?php the_field('celular','option'); ?></span>
+						<?php } ?>
 					</div>
 
 				</div>

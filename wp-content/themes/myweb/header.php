@@ -155,19 +155,41 @@
 				</div>
 
 				<div class="telefones">
-					<span class="tel">(11) 4118-6261</span>
-					<span class="tel">(35) 538-4455</span>
-					<span class="tel">(40) 967-7788</span>
+					<?php if(get_field('tel1','option')){ ?>
+						<span class="tel"><?php the_field('tel1','option'); ?></span>
+					<?php } ?>
+
+					<?php if(get_field('tel2','option')){ ?>
+						<span class="tel"><?php the_field('tel2','option'); ?></span>
+					<?php } ?>
+
+					<?php if(get_field('celular','option')){ ?>
+						<span class="tel"><?php the_field('celular','option'); ?></span>
+					<?php } ?>
 				</div>
 
 				<div class="email">
-					<a href="mailto: atendimento@zionturismo.com.br" title="atendimento@zionturismo.com.br">atendimento@zionturismo.com.br</a>
+					<?php if(get_field('email','option')){ ?>
+						<a href="mailto: <?php the_field('email','option'); ?>" title="<?php the_field('email','option'); ?>"><?php the_field('email','option'); ?></a>
+					<?php } ?>
 				</div>
 
 				<div class="redes-sociais">
-					<a href="#" title=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
-					<a href="#" title=""><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
-					<a href="#" title=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
+					<?php if(get_field('twitter','option')){ ?>
+						<a href="<?php the_field('twitter','option'); ?>" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+					<?php } ?>
+
+					<?php if(get_field('facebook','option')){ ?>
+						<a href="<?php the_field('facebook','option'); ?>" title="Facebook"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+					<?php } ?>
+
+					<?php if(get_field('instagram','option')){ ?>
+						<a href="<?php the_field('instagram','option'); ?>" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+					<?php } ?>
+
+					<?php if(get_field('youtube','option')){ ?>
+						<a href="<?php the_field('youtube','option'); ?>" title="Youtube"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+					<?php } ?>
 				</div>
 
 			</div>

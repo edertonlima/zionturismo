@@ -110,7 +110,7 @@
 			'has_archive' => true,
 			'hierarchical' => false,
 			'menu_icon' => 'dashicons-admin-tools',
-			'supports' => array('title')
+			'supports' => array('title','thumbnail')
 		);
 
 		register_post_type( 'servicos' , $args );
@@ -363,6 +363,18 @@ if( function_exists('acf_add_options_page') ) {
 	acf_add_options_sub_page(array(
 		'page_title' 	=> 'Imagem Topo',
 		'menu_title'	=> 'Imagem Topo',
+		'parent_slug'	=> 'configuracoes-geral',
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Porquê a Zion Turismo?',
+		'menu_title'	=> 'Porquê a Zion Turismo?',
+		'parent_slug'	=> 'configuracoes-geral',
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Home Call to Action',
+		'menu_title'	=> 'Home Call to Action',
 		'parent_slug'	=> 'configuracoes-geral',
 	));
 }
