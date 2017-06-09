@@ -41,11 +41,18 @@
 
 					foreach( $terms as $term ) { ?>
 
-							<article class="item-pacotes">
-									
-								<h2><?php echo $term->name; ?></h2>
-								<p><?php echo $term->description; ?></p>
-								<a href="<?php echo get_term_link($term->term_id); ?>" class="button ver-blog" title="VER MAIS">VER MAIS</a>
+							<article class="item-servico">
+
+								<?php 
+									if(get_field('imagem_categoria','categoria_pacotes_'.$term->term_id)){ ?>
+										<img src="<?php the_field('imagem_categoria','categoria_pacotes_'.$term->term_id); ?>" alt="<?php echo $term->name; ?>" class="img-servico">
+									<?php } 
+								?>
+								<div class="cont-servico-list <?php if(!get_field('imagem_categoria','categoria_pacotes_2')){ echo 'no-image-list'; } ?>">
+									<h2><?php echo $term->name; ?></h2>
+									<p><?php echo $term->description; ?></p>
+									<a href="<?php echo get_term_link($term->term_id); ?>" class="button ver-blog" title="VER MAIS">VER MAIS</a>
+								</div>								
 
 							</article>
 

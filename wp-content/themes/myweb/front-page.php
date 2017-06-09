@@ -295,6 +295,9 @@
 
 
         <section class="box-section list-post pacotes">
+
+            <h2>Pacotes em Destaques</h2>
+
             <ul class="slide-pacotes owl-carousel owl-theme">
 
                 <?php

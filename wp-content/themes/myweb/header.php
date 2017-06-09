@@ -217,6 +217,17 @@
 						</li>
 						<li class="">
 							<a href="<?php echo get_home_url(); ?>?post_type=pacotes" title="" class="">PACOTES</a>
+							<ul>
+								<li>
+									<a href="<?php echo get_home_url(); ?>?post_type=pacotes" title="" class="">PACOTES DIVERSOS</a>
+								</li>
+								<li class="">
+									<a href="<?php echo get_permalink(get_page_by_path('cruzeiros')); ?>" title="" class="">CRUZEIROS</a>
+								</li>
+								<li class="">
+									<a href="<?php echo get_permalink(get_page_by_path('passagem-aerea')); ?>" title="" class="">PASSAGEM AÉREA</a>
+								</li>
+							</ul>
 						</li>
 						<li class="">
 							<a href="<?php echo get_home_url(); ?>?post_type=servicos" title="" class="">SERVIÇOS</a>

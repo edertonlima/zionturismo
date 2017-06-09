@@ -914,11 +914,11 @@ div#copyright {
   width: 100%;
   background-color: #911f66;
   margin-top: 57px;
-  padding-top: 25px;
+  padding-top: 80px;
 }
 /* line 581, ../sass/style.scss */
 .footer .info-footer {
-  padding-bottom: 25px;
+  padding-bottom: 30px;
   vertical-align: middle;
 }
 /* line 586, ../sass/style.scss */
@@ -978,14 +978,15 @@ div#copyright {
   clear: both;
 }
 /* line 625, ../sass/style.scss */
-.footer .copy .col-6 p {
+.footer .copy .col-4 p {
   min-height: 38px;
   line-height: 38px;
   display: block;
+  margin-bottom: 0px;
 }
 /* line 631, ../sass/style.scss */
-.footer .copy .col-6 p, .footer .copy .col-6 a {
-  font-size: 14px;
+.footer .copy .col-4 p, .footer .copy .col-4 a {
+  font-size: 12px;
 }
 /* line 635, ../sass/style.scss */
 .footer .copy .col-6:last-child {
@@ -1217,4 +1218,44 @@ button.ver-blog, .button.ver-blog {
 
 .item-det-pacotes {
     /*display: none;*/
+}
+
+.cadastur {
+    max-width: 280px;
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+}
+
+.list-post.pacotes h2 {
+    clear: both;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.menu .nav ul li {
+    position: relative;
+}
+
+.menu .nav ul ul {
+    display: none;
+    position: absolute;
+    z-index: 999;
+    background: #911f66;
+    width: 300px;
+    padding: 20px;
+}
+
+.menu .nav ul li:hover ul {
+    display: block;
+}
+
+.menu .nav ul ul li {
+    display: block;
+}
+
+.menu .nav ul ul a {
+    color: #ffffff;
+    font-size: 16px;
 }

@@ -134,7 +134,7 @@ body {
 	height: 100%;
 }
 
-body * {
+body * { 
 	font-family: $font-family;
 	color: $cor-txt;
 	font-weight: $regular;
@@ -142,7 +142,7 @@ body * {
 
 .container {
 	max-width: $width; 
-	width: 100%;
+	width: $width;
 	padding: 0 80px;
 	margin: 0 auto;
 	position: relative;
@@ -553,6 +553,7 @@ form {
 		li {
 			display: inline-block;
 			line-height: 30px;
+			position: relative;
 
 			a {
 				font-size: 1.25rem;
@@ -560,6 +561,28 @@ form {
 				padding: 0 10px;
 				letter-spacing: -1px;
 				text-transform: uppercase;
+			}
+		}
+
+		ul ul {
+			display: none;
+			position: absolute;
+			z-index: 999;
+			background:  $cor1;
+			width: 300px;
+			padding: 20px;
+		}
+
+		li:hover ul {
+			display: block;
+		}
+
+		li li {
+			display: block;
+
+			a {
+				color: #ffffff;
+				font-size: 1rem;
 			}
 		}
 	}
@@ -575,11 +598,11 @@ form {
 		width: 100%;
 		background-color: $cor1;
 		margin-top: 57px;
-		padding-top: 25px;
+		padding-top: 80px;
 	}
 
 	.info-footer {
-		padding-bottom: 25px;
+		padding-bottom: 30px;
 		vertical-align: middle;
 	}
 
@@ -593,7 +616,7 @@ form {
 		border: none;
 		padding: 0;
 		margin: 0 0 10px 0;
-		letter-spacing: -2px;
+		letter-spacing: -2px; 
 	}
 
 	p, a {
@@ -601,17 +624,41 @@ form {
 		line-height: 1rem;
 	}
 
+	p {
+		margin-bottom: 0px;
+	}
+
+	.cadastur {
+		max-width: 280px;
+		margin: 0 auto;
+		display: block;
+		width: 100%;
+	}
+
 	span {
 		width: 100%;
-		margin-bottom: 10px;
+		margin-bottom: 15px;
 		display: block;
-
-		i {
-			margin-right: 5px;
-		}
 
 		&:last-child {
 			margin-bottom: 0px;
+		}
+	}
+
+	.info-footer-end{
+		span {
+			padding-left: 25px;
+			position: relative;
+			line-height: 15px;
+
+			i {
+				position: absolute;
+				left: 0;
+
+				&.fa-map-marker {
+					top: -3px;
+				}
+			}
 		}
 	}
 
@@ -621,15 +668,16 @@ form {
 		display: block;
 		@include clear();
 
-		.col-6 {
+		.col-4 {
 			p {
 				min-height: 38px;
 				line-height: 38px;
 				display: block;
+				margin-bottom: 0;
 			}
 
 			p, a {
-				font-size: .8rem;
+				font-size: .75rem;
 			}
 
 			&:last-child {
@@ -1009,12 +1057,15 @@ form {
 			.val-preco {
 				color: $cor1;
 				font-size: 1.8rem;
-				line-height: 1.325rem;
+				line-height: 1.8rem;
 			}
 
 			.det-preco {
 				font-size: .875rem;
 				line-height: .875rem;
+				&.a-partir {
+					margin-bottom: 10px;
+				}
 			}
 
 			.ver-pacote {
