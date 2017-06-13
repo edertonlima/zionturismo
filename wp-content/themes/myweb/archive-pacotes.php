@@ -36,7 +36,8 @@
 					$tax = 'categoria_pacotes';
 
 					$terms = get_terms( $tax, [
-					  'hide_empty' => false, // do not hide empty terms
+					  'hide_empty' => true,
+					  'orderby' => 'name'
 					]);
 
 					foreach( $terms as $term ) { ?>

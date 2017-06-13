@@ -104,6 +104,10 @@
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/owl.carousel.min.css" type="text/css" media="screen" />
 <?php } ?>
 
+<?php //if(is_singular('passagem-aerea')){ ?>
+	
+<?php //} ?>
+
 <!-- JQUERY -->
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/bootstrap.min.js"></script>
@@ -125,10 +129,21 @@
 		if(jQuery('.place-textarea textarea').val() != ''){
 			jQuery('.place-textarea textarea').siblings('.placeholder').hide();
 		}
+
+		jQuery('.menu-mobile').click(function(){
+			if(jQuery(this).hasClass('active')){
+				jQuery(this).removeClass('active');
+				jQuery('.nav ul.menu-nav').css('left','100vw');
+			}else{
+				jQuery(this).addClass('active');
+				jQuery('.nav ul.menu-nav').css('left','0vw');
+			}
+		});
 	});	
 
 	jQuery(window).resize(function(){
-
+		jQuery('.menu-mobile').removeClass('active');
+		jQuery('.nav ul.menu-nav').css('left','100vw');
 	});
 </script>
 
@@ -205,10 +220,8 @@
 				</h1>
 
 				<nav class="nav">
-					<ul>
-						<li class="">
-							<a href="<?php echo get_home_url(); ?>" title="HOME" class="">HOME</a>
-						</li>
+					<a href="javascript:" class="menu-mobile"><span><em>X</em></span></a>
+					<ul class="menu-nav">
 						<li class="">
 							<a href="<?php echo get_permalink(get_page_by_path('quem-somos')); ?>" title="<?php echo get_the_title(get_page_by_path('quem-somos')); ?>" class=""><?php echo get_the_title(get_page_by_path('quem-somos')); ?></a>
 						</li>
@@ -217,17 +230,29 @@
 						</li>
 						<li class="">
 							<a href="<?php echo get_home_url(); ?>?post_type=pacotes" title="" class="">PACOTES</a>
-							<ul>
-								<li>
-									<a href="<?php echo get_home_url(); ?>?post_type=pacotes" title="" class="">PACOTES DIVERSOS</a>
-								</li>
-								<li class="">
-									<a href="<?php echo get_permalink(get_page_by_path('cruzeiros')); ?>" title="" class="">CRUZEIROS</a>
-								</li>
-								<li class="">
-									<a href="<?php echo get_permalink(get_page_by_path('passagem-aerea')); ?>" title="" class="">PASSAGEM AÉREA</a>
-								</li>
-							</ul>
+
+							<?php
+								$tax = 'categoria_pacotes';
+
+								$terms = get_terms( $tax, [
+								  'hide_empty' => true,
+								  'orderby' => 'name'
+								]);
+
+								if(count($terms) > 0){ ?>
+									<ul>
+									 <?php foreach( $terms as $term ) { ?>
+
+										<li><a href="<?php echo get_term_link($term->term_id); ?>" title="<?php echo $term->name; ?>" class=""><?php echo $term->name; ?></a></li>
+
+										<?php } ?>
+									</ul>
+								<?php }
+							?>
+
+						</li>
+						<li class="">
+							<a href="<?php echo get_permalink(get_page_by_path('passagem-aerea')); ?>" title="" class="">PASSAGEM AÉREA</a>
 						</li>
 						<li class="">
 							<a href="<?php echo get_home_url(); ?>?post_type=servicos" title="" class="">SERVIÇOS</a>

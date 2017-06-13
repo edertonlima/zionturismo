@@ -19,7 +19,7 @@
 
 				<div class="quero-servico">
 					<h3>QUERO ESTE SERVIÇO <i class="fa fa-angle-down" aria-hidden="true"></i></h3>
-					<form action="#" class="form-servico">
+					<form action="#" class="form-solicitacao">
 						<fieldset>
 							<label for="nome">Nome (obrigatório)</label>
 							<input type="text" name="nome" id="nome" placeholder="Nome e Sobrenome" class="">

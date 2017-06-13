@@ -72,10 +72,10 @@
 						<div class="col-4">
 							<p><i class="fa fa-copyright" aria-hidden="true"></i> Todos os direitos reservados</p>
 						</div>
-						<div class="col-4">
+						<div class="col-4 links">
 							<p align="center"><a href="<?php echo get_permalink(get_page_by_path('politica-privacidade')); ?>" title="Politica de privacidade"><?php the_field('titulo_page',get_page_by_path('politica-privacidade')); ?></a></p>
 						</div>
-						<div class="col-4">
+						<div class="col-4 dev">
 							<p>Desenvolvimento: <a href="#" target="_blank">Finale Agência Digital</a></p>
 						</div>
 					</div>
@@ -99,8 +99,8 @@
 </script>
 
 <script data-skip-moving="true">
-	(function(w,d,u,b){
+	/*(function(w,d,u,b){
 		s=d.createElement('script');r=(Date.now()/1000|0);s.async=1;s.src=u+'?'+r;
 		h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
-	})(window,document,'https://cdn.bitrix24.com/b4324261/crm/site_button/loader_2_qpaelr.js');
+	})(window,document,'https://cdn.bitrix24.com/b4324261/crm/site_button/loader_2_qpaelr.js');*/
 </script>
