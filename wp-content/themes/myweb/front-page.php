@@ -1,87 +1,3 @@
-<?php /*
-<!DOCTYPE html>
-
-<html lang="pt-BR" prefix="og: http://ogp.me/ns#">
-
-<head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Zion Turismo</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/node_modules/bootstrap/dist/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/styles.min.css">
-        <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/animate.css">
-
-    </head>
-    <body>
-        <header>
-            <!-- Top Bar Infos -->
-            <div class="top_bar">
-                <div class="container">
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">   
-                    </div>     
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 align-right">
-                        <span><i class="fa fa-phone" aria-hidden="true"></i> (11) 3333-3333</span>
-                        <span><i class="fa fa-phone" aria-hidden="true"></i> (11) 9999-9999</span>
-                        <i class="fa fa-twitter" aria-hidden="true"></i>
-                        <i class="fa fa-twitter-square" aria-hidden="true"></i>
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="header_nav">
-                <div class="container">
-                    <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
-                        <img class="logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="">
-                    </div>
-                     <div class="col-xs-6 col-sm-6 col-md-10 col-lg-10">
-                        <nav>
-                            <ul>
-                                <li class="">
-                                    <a href="<?php echo get_home_url(); ?>" title="HOME" class="">HOME</a>
-                                </li>
-                                <li class="">
-                                    <a href="<?php echo get_permalink(get_page_by_path('quem-somos')); ?>" title="<?php echo get_the_title(get_page_by_path('quem-somos')); ?>" class=""><?php echo get_the_title(get_page_by_path('quem-somos')); ?></a>
-                                </li>
-                                <li class="">
-                                    <a href="javascript:" title="" class="">INGRESSOS</a>
-                                </li>
-                                <li class="">
-                                    <a href="<?php echo get_home_url(); ?>?post_type=pacotes" title="" class="">PACOTES</a>
-                                </li>
-                                <li class="">
-                                    <a href="<?php echo get_home_url(); ?>?post_type=servicos" title="" class="">SERVIÇOS</a>
-                                </li>
-                                <li class="">
-                                    <a href="<?php echo get_home_url(); ?>?cat=1" title="" class="">BLOG</a>
-                                </li>
-                                <li class="">
-                                    <a href="<?php echo get_permalink(get_page_by_path('contato')); ?>" title="<?php echo get_the_title(get_page_by_path('contato')); ?>" class=""><?php echo get_the_title(get_page_by_path('contato')); ?></a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="nav-mobile">
-                        <i id="open-menu" class="fa fa-bars" aria-hidden="true"></i>
-                         <ul id="menus-itens">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Quem somos</a></li>
-                            <li><a href="#">Ingressos</a></li>
-                            <li><a href="#">Pacotes</a></li>
-                            <li><a href="#">Vídeos</a></li>
-                            <li><a href="#">Serviços</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Contato</a></li>
-                        </ul>
-                    </div>
-                </div>    
-            </div>
-        </header>
-    
-*/ ?>
-
 <?php get_header(); ?>
 
         <section class="slider_full_width">
@@ -210,63 +126,6 @@
                         <?php the_field('video_pq','option'); ?>
                     </div>
 
-                    <?php /*<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-                        <div class="box-precos fadeInBlock" style="display: none;">
-                            <div class="panel-form">
-                                <div class="row">
-                                    <span class="title-form">
-                                        Procurar pacotes
-                                    </span>
-                                </div>
-                                <div class="row">
-                                    <span>Encontre o pacote perfeito</span>
-                                </div>
-                            
-                                <form action="#">
-                                    <div class="row">
-                                        <div class="input-with-icon">
-                                            <input type="text" name="pacoteName" placeholder="Procurar pacotes">
-                                            <i class="fa fa-search" aria-hidden="true"></i>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="row">
-                                        <div id="btn-drop" class="dropdown-destinos">
-                                            <span>Destino</span>
-                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                        </div>
-                                        <div id="selects" class="select-options">
-                                            <div class="options">
-                                                <span>Orlando</span>
-                                            </div>
-                                            <div class="options">
-                                                <span>EUA</span>
-                                            </div>
-                                            <div class="options">
-                                                <span>Las Vegas</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="half-input col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                            <input type="text" name="dataIda" placeholder="Data de ida">
-                                        </div>
-                                        <div class="half-input col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                            <input type="text" name="dataVolta" placeholder="Data de ida">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <input type="text" name="preco" placeholder="Apartir de R$0">
-                                    </div>
-                                    <div class="row">
-                                        <button>
-                                            <span>Procurar Pacotes</span>
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>*/?>
                 </div>
             </div>
         </section>
@@ -299,27 +158,95 @@
             <h2>Pacotes em Destaques</h2>
 
             <ul class="slide-pacotes owl-carousel owl-theme">
-
+                
                 <?php
-                    $args = array( 'post_type' => 'pacotes', 'posts_per_page' => '-1');
-                    $pacotes = new WP_Query( $args );
-                    $local_pacote = 0;
-                    while ( $pacotes->have_posts() ) : $pacotes->the_post(); ?>
+                    $tax = 'categoria_pacotes';
+                    $terms = get_terms( $tax, [
+                      'hide_empty' => true,
+                      'orderby' => 'name'
+                    ]);
+                    $num_slide = 0;
+                    foreach( $terms as $term ) { ?>
 
-                        <li class="item local-select" local="<?php echo $local_pacote; ?>" data-slide-number="<?php echo $local_pacote; ?>" rel="<?php the_field('localizacao'); ?>"><span><?php the_field('localizacao'); ?></span></li>
-                        
-                        <?php 
-                        $local_pacote = $local_pacote+1;
-                    endwhile;
+                        <li class="item local-select" data-slide-number="<?php echo $num_slide; ?>" rel="<?php echo $term->term_id; ?>"><span><?php echo $term->name; ?></span></li>
+
+                    <?php 
+                        $num_slide = $num_slide+1; 
+                    }
                 ?>
+
             </ul>
 
             <div class="container">
-                <div class="slide-det-pacote list-pacotes-local owl-carousel owl-theme">
 
-                    <?php while ( $pacotes->have_posts() ) : $pacotes->the_post(); ?>
+<?php
+    $args = array( 'post_type' => 'pacotes','hide_empty' => true, 'posts_per_page' => '-1');
+    $pacotes = new WP_Query( $args );
+    foreach( $terms as $term ) { ?>
+        <div class="slide-det-pacote list-pacotes-local owl-carousel owl-theme" id="slide_<?php echo $term->term_id; ?>">
+
+<?php while ( $pacotes->have_posts() ) : $pacotes->the_post(); 
+    $tax_posts = get_the_terms( $post->ID, $tax );
+    $item_on = false;
+    foreach( $tax_posts as $tax_post ) {
+        if(!$item_on){
+            if($tax_post->term_id == $term->term_id){ ?>
+                
+        <div class="item item-det-pacotes">                        
+            <div id="" class="pacotes default">
+                <div class="pacotes-destaques">
+                    <div class="content-blog">
+                        <div class="row">
+
+                            <?php $imagem = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'medium' );  ?>
+                            <?php if($imagem[0]){ ?>
+                                <img src="<?php echo $imagem[0]; ?>" alt="<?php the_title(); ?>" class="img-responsive">
+                            <?php } ?>
+
+                        </div>
+                        <div class="row">
+                            <span class="title-pacotes"><?php the_title(); ?></span>
+                        </div>
+                        <div class="row">
+                            <a href="<?php echo get_permalink(); ?>" class="button ver-blog" title="VER PACOTE">VER PACOTE</a>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+
+                <?php $item_on = true;
+            }
+        }
+    }
+?>
+
+<?php endwhile; ?>
+
+        </div>
+    <?php }
+?>
+
+
+
+
+
+
+                <div class="slide-det-pacote list-pacotes-local owl-carousel owl-theme" style="display: none;">
+
+                    <?php 
+                    $args = array( 'post_type' => 'pacotes','hide_empty' => true, 'posts_per_page' => '-1');
+                    $pacotes = new WP_Query( $args );
+
+                    while ( $pacotes->have_posts() ) : $pacotes->the_post();
+                        $tax_posts = get_the_terms( $post->ID, $tax );
+                        $class_item = '';
+                        foreach( $tax_posts as $tax_post ) {
+                            $class_item = $class_item.' pac_'.$tax_post->term_id;
+                        }
+                    ?>
                     
-                        <div class="item item-det-pacotes" rel="<?php the_field('localizacao'); ?>">                        
+                        <div class="item item-det-pacotes <?php echo $class_item; ?>">                        
                             <div id="" class="pacotes default">
                                 <div class="pacotes-destaques">
                                     <div class="content-blog">
@@ -327,7 +254,7 @@
 
                                             <?php $imagem = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'medium' );  ?>
                                             <?php if($imagem[0]){ ?>
-                                                <img src="<?php echo $imagem[0]; ?>" alt="<?php the_title(); ?>" class="img-responsive">
+                                                <img src="<?php echo $imagem[0]; ?>" alt="<?php //the_title(); ?>" class="img-responsive">
                                             <?php } ?>
 
                                         </div>
@@ -406,12 +333,9 @@
 
     <?php get_footer(); ?>
 
-    <script src="<?php echo get_template_directory_uri(); ?>/node_modules/jquery/dist/jquery.min.js"></script>
+   
     <script src="https://use.fontawesome.com/a145708429.js"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/assets/js/main.min.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/assets/js/owl.carousel.min.js"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/assets/js/owl.lazyload.js"></script>
 
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
@@ -439,8 +363,11 @@
         owl.owlCarousel({
             margin: 0,
             loop: false,
-            center: true,
-            nav:false,
+            center: false,
+            nav:true,
+            navText: [
+                '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+                '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
             responsive: {
                 0: {
                     items: 3
@@ -456,23 +383,26 @@
 
         jQuery(document).ready(function(){
             var local_inicial = jQuery('.slide-pacotes .owl-item.active.center .local-select').attr('rel');
-            local_inicial = '.item-det-pacotes[rel="'+local_inicial+'"]';
-            jQuery('.item-det-pacotes').parent().hide();
-            jQuery(local_inicial).parent().show();
+            local_inicial = '#slide_'+local_inicial;
+            jQuery('.slide-det-pacote').hide();
+            jQuery(local_inicial).show();
 
             jQuery('.local-select').click(function(){
-                var id = jQuery(this).attr('local');
-                var local = jQuery(this).attr('rel');
-                local = '.item-det-pacotes[rel="'+local+'"]';
-                jQuery('.slide-pacotes').trigger('to.owl.carousel', id);
-                jQuery('.item-det-pacotes').parent().hide();
-                jQuery(local).parent().show();
+                var pacotes = jQuery(this).attr('rel');
+                var slide = jQuery(this).attr('data-slide-number');
+                pacotes = '#slide_'+pacotes;
+
+                setTimeout(function(){
+                    jQuery('.slide-pacotes').trigger('to.owl.carousel', slide);
+                    jQuery('.slide-det-pacote').hide();
+                    jQuery(pacotes).show();
+                }, 100);
 
                 //jQuery('.slide-det-pacote').trigger('refresh.owl.carousel');
-
+                /*
                 var owl = jQuery('.slide-det-pacote').owlCarousel({
                     margin: 0,
-                    loop: false,
+                    loop: true,
                     center: true,
                     nav:false,
                     responsive: {
@@ -487,7 +417,7 @@
                         }
                     }
                 });
-                owl.trigger('refresh.owl.carousel');
+                owl.trigger('refresh.owl.carousel');*/
             });
         });
 

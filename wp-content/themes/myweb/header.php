@@ -163,10 +163,9 @@
 		<section class="top-menu">
 			<div class="container">
 				
-				<div class="regiao">
+				<div class="regiao" style="display: none;">
 					<a href="#" class="" title="EN"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/en.png" alt=""></a>
 					<a href="#" class="ativo" title="PT"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/pt.png" alt=""></a>
-					<a href="#" class="" title="ES" style="display: none;">ES</a>
 				</div>
 
 				<div class="telefones">

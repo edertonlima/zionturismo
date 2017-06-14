@@ -56,13 +56,15 @@
 						<?php endforeach; ?>
 					</div>
 				<?php endif; ?>
-
-				<div class="consulte">
-					<span class="tit-consulte">NÃO ACHOU O QUE PROCURAVA?</span>
-					<h2>CONSULTE-NOS</h2>
-					<span class="tel">+55 (11) 3030-4040</span>
-					<span class="email">contato@zionturismo.com.br</span>
-				</div>
+				
+				<?php if((get_field('email','option')) or (get_field('tel1','option'))){ ?>
+					<div class="consulte">
+						<span class="tit-consulte">NÃO ACHOU O QUE PROCURAVA?</span>
+						<h2>CONSULTE-NOS</h2>
+						<span class="tel"><?php the_field('tel1','option'); ?></span>
+						<span class="email"><?php the_field('email','option'); ?></span>
+					</div>
+				<?php } ?>
 			</div>
 		</div>
 

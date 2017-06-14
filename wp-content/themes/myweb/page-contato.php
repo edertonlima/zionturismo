@@ -18,22 +18,37 @@
 
 				<div class="contato-mapa">
 					<div class="info-contato">
-						<div class="item-info">
+						<?php /*<div class="item-info">
 							<h2>EUA</h2>
 							<div class="det-info">
-								<span><i class="fa fa-envelope"></i>contato@zionTurismo.com.br</span>
+								<span><i class="fa fa-envelope"></i><?php the_field('email','option'); ?></span>
 								<span><i class="fa fa-phone"></i>(11) 3445-999</span>
-								<span><i class="fa fa-map-marker"></i>339 E 3900 S #230, Salt Lake City, UT 84107, EUA</span>
+								<span><i class="fa fa-map-marker"></i><?php the_field('endereco_en','option'); ?></span>
 							</div>
-						</div>
+						</div>*/?>
 
 						<div class="item-info">
 							<h2>BRASIL</h2>
 							<div class="det-info">
-								<span><i class="fa fa-envelope"></i>contato@zionTurismo.com.br</span>
-								<span><i class="fa fa-phone"></i>(11) 3445-999</span>
-								<span><i class="fa fa-mobile"></i>(11) 9999-999</span>
-								<span><i class="fa fa-map-marker"></i>Avenida Paulista, 123 sala 32</span>
+								<?php if(get_field('email','option')){ ?>
+									<span><i class="fa fa-envelope"></i><?php the_field('email','option'); ?></span>
+								<?php } ?>
+
+								<?php if(get_field('tel1','option')){ ?>
+									<span><i class="fa fa-phone"></i><?php the_field('tel1','option'); ?></span>
+								<?php } ?>
+
+								<?php if(get_field('tel2','option')){ ?>
+									<span><i class="fa fa-phone"></i><?php the_field('tel2','option'); ?></span>
+								<?php } ?>
+
+								<?php if(get_field('celular','option')){ ?>
+									<span><i class="fa fa-mobile"></i><?php the_field('celular','option'); ?></span>
+								<?php } ?>
+
+								<?php if(get_field('endereco_br','option')){ ?>
+									<span><i class="fa fa-map-marker"></i><?php the_field('endereco_br','option'); ?></span>
+								<?php } ?>
 							</div>
 						</div>
 					</div>
