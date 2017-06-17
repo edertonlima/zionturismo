@@ -27,7 +27,7 @@
 		<div class="row">
 
 			<?php if($count_pacote > 0){ 
-				echo '<div class="col-9">';
+				echo '<div class="col-9 content-page-sidebar">';
 			}else{ 
 				echo '<div class="col-1">&nbsp</div><div class="col-10">';
 			} ?>
@@ -64,7 +64,7 @@
 			</div>
 
 			<?php if($count_pacote > 0){ ?>
-				<div class="col-3">	
+				<div class="col-3 sidebar-produtos">	
 
 					<div class="list-produtos">
 						<h3>PRODUTOS</h3>

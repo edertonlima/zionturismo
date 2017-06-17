@@ -159,6 +159,17 @@
 
 <body <?php body_class($body_class); ?>>
 
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-62676851-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+
 	<header class="header">
 		<section class="top-menu">
 			<div class="container">
@@ -224,11 +235,13 @@
 						<li class="">
 							<a href="<?php echo get_permalink(get_page_by_path('quem-somos')); ?>" title="<?php echo get_the_title(get_page_by_path('quem-somos')); ?>" class=""><?php echo get_the_title(get_page_by_path('quem-somos')); ?></a>
 						</li>
+						<?php /*
 						<li class="">
 							<a href="javascript:" title="" class="">INGRESSOS</a>
 						</li>
+						*/ ?>
 						<li class="">
-							<a href="<?php echo get_home_url(); ?>?post_type=pacotes" title="" class="">PACOTES</a>
+							<a href="<?php echo get_permalink(get_page_by_path('pacotes')); ?>" title="" class="">PACOTES</a>
 
 							<?php
 								$tax = 'categoria_pacotes';
@@ -254,10 +267,10 @@
 							<a href="<?php echo get_permalink(get_page_by_path('passagem-aerea')); ?>" title="" class="">PASSAGEM AÉREA</a>
 						</li>
 						<li class="">
-							<a href="<?php echo get_home_url(); ?>?post_type=servicos" title="" class="">SERVIÇOS</a>
+							<a href="<?php echo get_home_url(); ?>/servicos" title="" class="">SERVIÇOS</a>
 						</li>
 						<li class="">
-							<a href="<?php echo get_home_url(); ?>?cat=1" title="" class="">BLOG</a>
+							<a href="<?php echo get_home_url(); ?>/blog" title="" class="">BLOG</a>
 						</li>
 						<li class="">
 							<a href="<?php echo get_permalink(get_page_by_path('contato')); ?>" title="<?php echo get_the_title(get_page_by_path('contato')); ?>" class=""><?php echo get_the_title(get_page_by_path('contato')); ?></a>

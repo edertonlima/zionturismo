@@ -149,8 +149,6 @@ span.title-form {
 
 .slider_full_width img {
     width: 100%;
-    max-height: 600px;
-    min-height: 600px;
 }
 
 section#porque-a-zion {
@@ -334,7 +332,15 @@ input::-webkit-input-placeholder {
     background-repeat: repeat;
     background-attachment: fixed;
     background-size: cover;
-    height: 300px;
+    padding: 100px 0!important;
+}
+
+.call_to_action .row {
+    margin: 0px;
+}
+
+.call_to_action .block-text {
+    margin: 0;
 }
 
 .block-text {
@@ -691,7 +697,6 @@ div#copyright {
         background: url(http://www.trbimg.com/img-546e449d/turbine/sfp-family-travel-tips-20141120) 0 no-repeat;
         background-size: cover;
         position: relative;
-        padding: 1.5em!important
     }
     nav ul {
         background: #8f2365
@@ -1167,6 +1172,16 @@ button.ver-blog, .button.ver-blog {
         -moz-transition: all 0.2s ease 0s;
         -webkit-transition: all 0.2s ease 0s;
         -o-transition: all 0.2s ease 0s; }
+        @media all and (max-width: 600px){
+            .list-post.pacotes .slide-pacotes .item span {
+                font-size: 1.5rem;
+                top: 8px;
+            }
+
+            .list-post.pacotes .slide-pacotes .owl-item:not(.center) .item span::after {
+                top: 28px!important;
+            }
+        }
         .list-post.pacotes .slide-pacotes .item span:after {
           content: '';
           position: absolute;

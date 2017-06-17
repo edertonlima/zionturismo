@@ -18,61 +18,95 @@
 
 				<div class="contato-mapa">
 					<div class="info-contato">
-						<?php /*<div class="item-info">
-							<h2>EUA</h2>
-							<div class="det-info">
-								<span><i class="fa fa-envelope"></i><?php the_field('email','option'); ?></span>
-								<span><i class="fa fa-phone"></i>(11) 3445-999</span>
-								<span><i class="fa fa-map-marker"></i><?php the_field('endereco_en','option'); ?></span>
+
+						<?php if(get_field('endereco_en','option')){ ?>
+							<div class="item-info">
+								<h2>EUA</h2>
+								<div class="det-info">
+									<?php if(get_field('email_en','option')){ ?>
+										<span><i class="fa fa-envelope"></i><?php the_field('email_en','option'); ?></span>
+									<?php } ?>
+
+									<?php if(get_field('tel1_en','option')){ ?>
+										<span><i class="fa fa-phone"></i><?php the_field('tel1_en','option'); ?></span>
+									<?php } ?>
+
+									<?php if(get_field('tel2_en','option')){ ?>
+										<span><i class="fa fa-phone"></i><?php the_field('tel2_en','option'); ?></span>
+									<?php } ?>
+
+									<?php if(get_field('celular_en','option')){ ?>
+										<span><i class="fa fa-mobile"></i><?php the_field('celular_en','option'); ?></span>
+									<?php } ?>
+
+									<?php if(get_field('endereco_en','option')){ ?>
+										<span><i class="fa fa-map-marker"></i><?php the_field('endereco_en','option'); ?></span>
+									<?php } ?>
+								</div>
 							</div>
-						</div>*/?>
+						<?php } ?>
 
-						<div class="item-info">
-							<h2>BRASIL</h2>
-							<div class="det-info">
-								<?php if(get_field('email','option')){ ?>
-									<span><i class="fa fa-envelope"></i><?php the_field('email','option'); ?></span>
-								<?php } ?>
+						<?php if(get_field('endereco_br','option')){ ?>
+							<div class="item-info">
+								<h2>BRASIL</h2>
+								<div class="det-info">
+									<?php if(get_field('email','option')){ ?>
+										<span><i class="fa fa-envelope"></i><?php the_field('email','option'); ?></span>
+									<?php } ?>
 
-								<?php if(get_field('tel1','option')){ ?>
-									<span><i class="fa fa-phone"></i><?php the_field('tel1','option'); ?></span>
-								<?php } ?>
+									<?php if(get_field('tel1','option')){ ?>
+										<span><i class="fa fa-phone"></i><?php the_field('tel1','option'); ?></span>
+									<?php } ?>
 
-								<?php if(get_field('tel2','option')){ ?>
-									<span><i class="fa fa-phone"></i><?php the_field('tel2','option'); ?></span>
-								<?php } ?>
+									<?php if(get_field('tel2','option')){ ?>
+										<span><i class="fa fa-phone"></i><?php the_field('tel2','option'); ?></span>
+									<?php } ?>
 
-								<?php if(get_field('celular','option')){ ?>
-									<span><i class="fa fa-mobile"></i><?php the_field('celular','option'); ?></span>
-								<?php } ?>
+									<?php if(get_field('celular','option')){ ?>
+										<span><i class="fa fa-mobile"></i><?php the_field('celular','option'); ?></span>
+									<?php } ?>
 
-								<?php if(get_field('endereco_br','option')){ ?>
-									<span><i class="fa fa-map-marker"></i><?php the_field('endereco_br','option'); ?></span>
-								<?php } ?>
+									<?php if(get_field('endereco_br','option')){ ?>
+										<span><i class="fa fa-map-marker"></i><?php the_field('endereco_br','option'); ?></span>
+									<?php } ?>
+								</div>
 							</div>
-						</div>
+						<?php } ?>
 					</div>
 
 					<div id="map"></div>
 					<script>
 						function initMap() {
-							var uluru = {lat: 40.6872851, lng: -111.8838732};
+
 							var map = new google.maps.Map(document.getElementById('map'));
-							var marker = new google.maps.Marker({
-								position: uluru,
-								map: map
-							});
 
-							var uluru = {lat: -23.5706485, lng: -46.6477426};
-							var marker = new google.maps.Marker({
-								position: uluru,
-								map: map
-							});
+							<?php if((get_field('endereco_LAT_BR','option')) and (get_field('endereco_LON_BR','option'))){ $end_br = true; ?>
+								var uluru = {lat: <?php the_field('endereco_LAT_BR','option'); ?>, lng: <?php the_field('endereco_LON_BR','option'); ?>};
+								var marker = new google.maps.Marker({
+									position: uluru,
+									map: map
+								});
 
-							var LatLngList = [
-								new google.maps.LatLng (40.6872851,-111.8838732), 
-								new google.maps.LatLng (-23.5706485,-46.6477426)
-							],
+							<?php } ?>
+
+							<?php if((get_field('endereco_LAT_EN','option')) and (get_field('endereco_LON_EN','option'))){ $end_en = true; ?>
+								var uluru = {lat: <?php the_field('endereco_LAT_EN','option'); ?>, lng: <?php the_field('endereco_LON_EN','option'); ?>};
+								var marker = new google.maps.Marker({
+									position: uluru,
+									map: map
+								});
+							<?php } ?>
+
+							<?php if(($end_br) and ($end_en)){ ?>
+								var LatLngList = [
+									new google.maps.LatLng (<?php the_field('endereco_LAT_BR','option'); ?>,<?php the_field('endereco_LON_BR','option'); ?>), 
+									new google.maps.LatLng (<?php the_field('endereco_LAT_EN','option'); ?>,<?php the_field('endereco_LON_EN','option'); ?>)
+								];
+							<?php }else{ ?>
+								var LatLngList = [
+									new google.maps.LatLng (<?php the_field('endereco_LAT_BR','option'); ?>,<?php the_field('endereco_LON_BR','option'); ?>)
+								];
+							<?php } ?>
 							latlngbounds = new google.maps.LatLngBounds();
 
 							LatLngList.forEach(function(latLng){
@@ -80,7 +114,7 @@
 							});
 
 							map.setCenter(latlngbounds.getCenter());
-							map.fitBounds(latlngbounds); 
+							map.fitBounds(latlngbounds);
 						}
 					</script>
 					<script async defer

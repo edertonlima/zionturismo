@@ -119,6 +119,39 @@
 
 
 	// pacotes
+	add_action( 'init', 'create_taxonomy_categoria_pacotes' );
+	function create_taxonomy_categoria_pacotes() {
+
+		$labels = array(
+		    'name' => _x( 'Categorias de Pacotes', 'taxonomy general name' ),
+		    'singular_name' => _x( 'Categorias', 'taxonomy singular name' ),
+		    'search_items' =>  __( 'Search Categorias' ),
+		    'all_items' => __( 'All Categories' ),
+		    'parent_item' => __( 'Parent Categorias' ),
+		    'parent_item_colon' => __( 'Parent Categorias:' ),
+		    'edit_item' => __( 'Edit Categorias' ),
+		    'update_item' => __( 'Update Categorias' ),
+		    'add_new_item' => __( 'Add New Categorias' ),
+		    'new_item_name' => __( 'New Categorias Name' ),
+		    'menu_name' => __( 'Categorias' )
+		);
+
+	    register_taxonomy( 'categoria_pacotes', array( 'pacotes' ), array(
+	        'hierarchical' => false,
+	        'labels' => $labels,
+	        'show_ui' => true,
+	        'show_in_tag_cloud' => true,
+	        'query_var' => true,
+			'has_archive' => 'pacotes',
+			'rewrite' => array(
+			    'slug' => 'pacotes',
+			    'with_front' => true,
+			    'hierarchical' => true
+				),
+	        )
+	    );
+	}
+
 	add_action( 'init', 'create_post_type_pacotes' );
 	function create_post_type_pacotes() {
 
@@ -143,7 +176,7 @@
 		    'publicly_queryable' => true,
 		    'show_ui' => true,
 		    'show_in_menu' => true,
-		    'rewrite' => true,
+		    'rewrite' => array('slug' => 'pacotes','with_front'=>false,'feed'=> true,'pages'=> true),
 		    'capability_type' => 'post',
 		    'has_archive' => true,
 		    'hierarchical' => false,
@@ -155,37 +188,6 @@
 	    register_post_type( 'pacotes', $args );
 	}
 
-	add_action( 'init', 'create_taxonomy_categoria_pacotes' );
-	function create_taxonomy_categoria_pacotes() {
-
-		$labels = array(
-		    'name' => _x( 'Categorias de Pacotes', 'taxonomy general name' ),
-		    'singular_name' => _x( 'Categorias', 'taxonomy singular name' ),
-		    'search_items' =>  __( 'Search Categorias' ),
-		    'all_items' => __( 'All Categories' ),
-		    'parent_item' => __( 'Parent Categorias' ),
-		    'parent_item_colon' => __( 'Parent Categorias:' ),
-		    'edit_item' => __( 'Edit Categorias' ),
-		    'update_item' => __( 'Update Categorias' ),
-		    'add_new_item' => __( 'Add New Categorias' ),
-		    'new_item_name' => __( 'New Categorias Name' ),
-		    'menu_name' => __( 'Categorias' ),
-		);
-
-	    register_taxonomy( 'categoria_pacotes', array( 'pacotes' ), array(
-	        'hierarchical' => true,
-	        'labels' => $labels,
-	        'show_ui' => true,
-	        'show_in_tag_cloud' => true,
-	        'query_var' => true,
-			'has_archive' => 'pacotes',
-			'rewrite' => array(
-			    'slug' => 'pacotes',
-			    'with_front' => false,
-				),
-	        )
-	    );
-	}
 
 /*
 	// matriz e filiais

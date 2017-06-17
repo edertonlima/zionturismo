@@ -2,11 +2,11 @@
 	$args = array( 'post_type' => 'pacotes', 'posts_per_page' => 10 );
 	$pacotes = new WP_Query( $args );
 	$count_pacote = 0;
-	while ( $pacotes->have_posts() ) : $pacotes->the_post();
-		if(get_field('destaque')){
+	foreach ($pacotes as $pacote) {
+		if(get_field('destaque',$pacote->ID)){
 			$count_pacote = $count_pacote+1;
 		}
-	endwhile;
+	}
 ?>
 
 <section class="section det-pacote pacotes">
@@ -15,7 +15,7 @@
 		<div class="row">
 		
 			<?php if($count_pacote > 0){ 
-				echo '<div class="col-9">';
+				echo '<div class="col-9 content-page-sidebar">';
 			}else{ 
 				echo '<div class="col-1">&nbsp</div><div class="col-10">';
 			} ?>			
@@ -138,7 +138,7 @@
 			</div>
 			
 			<?php if($count_pacote > 0){ ?>
-				<div class="col-3">	
+				<div class="col-3 sidebar-produtos">	
 
 					<div class="list-produtos">
 						<h3>PRODUTOS</h3>
@@ -173,7 +173,7 @@
 		<div class="row">
 			<div class="col-12">
 
-				<div class="quero-servico">
+				<div class="form-solicitacao">
 					<h3>EU QUERO ESTE PACOTE <i class="fa fa-angle-down" aria-hidden="true"></i></h3>
 					<form action="#" class="form-servico">
 						<fieldset>

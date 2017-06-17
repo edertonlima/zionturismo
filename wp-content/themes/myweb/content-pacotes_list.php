@@ -22,7 +22,7 @@
 		<span class="det-preco a-partir">a partir de</span>
 		<span class="val-preco">R$ <?php the_field('preco_pacotes'); ?></span>
 		<span class="det-preco">por pessoa</span>
-		<a href="<?php echo get_permalink(); ?>" class="button ver-pacote" title="">VER PACOTE</a>
+		<a href="<?php //echo get_permalink(); ?>/?post_type=pacotes&p=<?php echo $post->ID; ?>" class="button ver-pacote" title="">VER PACOTE</a>
 	</div>
 
 </article>
