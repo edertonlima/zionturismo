@@ -1,10 +1,26 @@
+<?php
+	global $idioma;
+	global $url_idioma;
+	$idioma = WPGlobus::Config()->language;
+	if($idioma == 'en'){
+		$url_idioma = explode('/en',home_url());
+	}else{
+		if($idioma == 'pt'){
+			$url_idioma = explode('/pt',home_url());
+		}else{
+			$url_idioma = home_url();
+		}
+	}
+?>
+
 	<section class="section news">
 		<div class="container">
 			<h2>Newsletter</h2>
-			<p>Quer receber no seu email descontos exclusivos? cadastre-se abaixo</p>
+			<p><?php if($idioma == 'en'){ echo 'Do you want to receive exclusive discounts on your email? Sign Up below'; }else{ echo 'Quer receber no seu email descontos exclusivos? cadastre-se abaixo'; } ?></p>
 			<form action="#">
-				<input type="text" name="" id="" class="email-news" placeholder="Digite seu e-mail">
-				<button type="submit" class="news-enviar">Enviar</button>
+				<input type="text" name="" id="" class="email-news" placeholder="<?php if($idioma == 'en'){ echo 'Type your e-mail
+'; }else{ echo 'Digite seu e-mail'; } ?>">
+				<button type="submit" class="news-enviar"><?php if($idioma == 'en'){ echo 'Send'; }else{ echo 'Enviar'; } ?></button>
 			</form>
 		</div>
 	</section>
@@ -15,31 +31,67 @@
 				<div class="row info-footer">
 						
 					<div class="col-4 col-footer">
-						<h2>Sobre:</h2>
-						<p><?php the_field('descricao_rodape',5); ?></p>
-						<?php if(get_field('cnpj','option')){ ?>
-							<br>
-							<p>CNPJ: <?php the_field('cnpj','option'); ?></p>
-						<?php } ?>
-						<?php if(get_field('img_certificado','option')){ ?>
-							<img src="<?php the_field('img_certificado','option'); ?>" alt="" class="cadastur">
+						<h2><?php if($idioma == 'en'){ echo 'About:'; }else{ echo 'Sobre:'; } ?></h2>
+						<?php if($idioma == 'en'){ ?>
+							<p><?php the_field('descricao_rodape_en','option'); ?></p>
+							<?php if(get_field('cnpj_en','option')){ ?>
+								<br>
+								<p>CNPJ: <?php the_field('cnpj_en','option'); ?></p>
+							<?php } ?>
+							<?php if(get_field('img_certificado_en','option')){ ?>
+								<img src="<?php the_field('img_certificado_en','option'); ?>" alt="" class="cadastur">
+							<?php } ?>
+						<?php }else{ ?>
+							<p><?php the_field('descricao_rodape','option'); ?></p>
+							<?php if(get_field('cnpj','option')){ ?>
+								<br>
+								<p>CNPJ: <?php the_field('cnpj','option'); ?></p>
+							<?php } ?>
+							<?php if(get_field('img_certificado','option')){ ?>
+								<img src="<?php the_field('img_certificado','option'); ?>" alt="" class="cadastur">
+							<?php } ?>
 						<?php } ?>
 					</div>
 
 					<div class="col-4">
-						<h2>Siga-nos:</h2>
-						<div class="fb-page" data-href="https://www.facebook.com/zionturismo/?ref=br_rs" data-tabs="p&#xe1;gina" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/zionturismo/?ref=br_rs" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/zionturismo/?ref=br_rs">Zion Turismo</a></blockquote></div>
+						<h2><?php if($idioma == 'en'){ echo 'Follow us:'; }else{ echo 'Siga-nos:'; } ?></h2>
+						<div class="fb-page" data-href="https://www.facebook.com/zionturismo" data-tabs="p&#xe1;gina" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"></div>
 					</div>
 
 					<div class="col-4 info-footer-end">
+					<?php if($idioma == 'en'){ ?>
+						<h2>Contacts:</h2>
+
+						<?php if(get_field('endereco_en','option')){ ?>
+							<span><i class="fa fa-map-marker"></i> <?php the_field('endereco_en','option'); ?></span>
+						<?php } ?>
+
+						<?php if(get_field('email_en','option')){ ?>
+							<span><i class="fa fa-envelope"></i> <?php the_field('email_en','option'); ?></span>
+						<?php } ?>
+
+						<?php if(get_field('skype_en','option')){ ?>
+							<span><i class="fa fa-skype"></i> <?php the_field('skype_en','option'); ?></span>
+						<?php } ?>
+
+						<?php if(get_field('tel1_en','option')){ ?>
+							<span><i class="fa fa-phone"></i> <?php the_field('tel1_en','option'); ?></span>
+						<?php } ?>
+
+						<?php if(get_field('tel2_en','option')){ ?>
+							<span><i class="fa fa-phone"></i> <?php the_field('tel2_en','option'); ?></span>
+						<?php } ?>
+
+						<?php if(get_field('celular_en','option')){ ?>
+							<span><i class="fa fa-whatsapp"></i> <?php the_field('celular_en','option'); ?></span>
+						<?php } ?>
+
+					<?php }else{ ?>
+
 						<h2>Contatos:</h2>
 
 						<?php if(get_field('endereco_br','option')){ ?>
 							<span><i class="fa fa-map-marker"></i> <?php the_field('endereco_br','option'); ?></span>
-						<?php } ?>
-
-						<?php if(get_field('endereco_en','option')){ ?>
-							<span><i class="fa fa-map-marker"></i> <?php the_field('endereco_en','option'); ?></span>
 						<?php } ?>
 
 						<?php if(get_field('email','option')){ ?>
@@ -61,6 +113,8 @@
 						<?php if(get_field('celular','option')){ ?>
 							<span><i class="fa fa-whatsapp"></i> <?php the_field('celular','option'); ?></span>
 						<?php } ?>
+
+					<?php } ?>
 					</div>
 
 				</div>
@@ -70,13 +124,13 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-4">
-							<p><i class="fa fa-copyright" aria-hidden="true"></i> Todos os direitos reservados</p>
+							<p><i class="fa fa-copyright" aria-hidden="true"></i> <?php if($idioma == 'en'){ echo 'All rights reserved'; }else{ echo 'Todos os direitos reservados'; } ?></p>
 						</div>
 						<div class="col-4 links">
 							<p align="center"><a href="<?php echo get_permalink(get_page_by_path('politica-privacidade')); ?>" title="Politica de privacidade"><?php the_field('titulo_page',get_page_by_path('politica-privacidade')); ?></a></p>
 						</div>
 						<div class="col-4 dev">
-							<p>Desenvolvimento: <a href="#" target="_blank">Finale Agência Digital</a></p>
+							<p><?php if($idioma == 'en'){ echo 'Development:'; }else{ echo 'Desenvolvimento:'; } ?> <a href="#" target="_blank">Finale Agência Digital</a></p>
 						</div>
 					</div>
 				</div>

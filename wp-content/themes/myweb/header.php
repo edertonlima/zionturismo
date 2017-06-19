@@ -2,7 +2,18 @@
 <html lang="pt-br">
 <head>
 <?php
-
+	global $idioma;
+	global $url_idioma;
+	$idioma = WPGlobus::Config()->language;
+	if($idioma == 'en'){
+		$url_idioma = explode('/en',home_url());
+	}else{
+		if($idioma == 'pt'){
+			$url_idioma = explode('/pt',home_url());
+		}else{
+			$url_idioma = home_url();
+		}
+	}
 ?>
 <?php 
 	$titulo = '';
@@ -173,10 +184,55 @@
 	<header class="header">
 		<section class="top-menu">
 			<div class="container">
+
+			<?php if($idioma == 'en'){ ?>
 				
-				<div class="regiao" style="display: none;">
-					<a href="#" class="" title="EN"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/en.png" alt=""></a>
-					<a href="#" class="ativo" title="PT"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/pt.png" alt=""></a>
+				<div class="regiao">					
+					<a href="<?php echo $url_idioma[0].'/pt/'.add_query_arg(array(),$wp->request); ?>" class="ativo" title="PT"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/pt.png" alt="PT"></a>					
+				</div>
+
+				<div class="telefones">
+					<?php if(get_field('tel1_en','option')){ ?>
+						<span class="tel"><?php the_field('tel1_en','option'); ?></span>
+					<?php } ?>
+
+					<?php if(get_field('tel2_en','option')){ ?>
+						<span class="tel"><?php the_field('tel2_en','option'); ?></span>
+					<?php } ?>
+
+					<?php if(get_field('celular_en','option')){ ?>
+						<span class="tel"><?php the_field('celular_en','option'); ?></span>
+					<?php } ?>
+				</div>
+
+				<div class="email">
+					<?php if(get_field('email_en','option')){ ?>
+						<a href="mailto: <?php the_field('email_en','option'); ?>" title="<?php the_field('email_en','option'); ?>"><?php the_field('email_en','option'); ?></a>
+					<?php } ?>
+				</div>
+
+				<div class="redes-sociais">
+					<?php if(get_field('twitter_en','option')){ ?>
+						<a href="<?php the_field('twitter_en','option'); ?>" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+					<?php } ?>
+
+					<?php if(get_field('facebook_en','option')){ ?>
+						<a href="<?php the_field('facebook_en','option'); ?>" title="Facebook"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+					<?php } ?>
+
+					<?php if(get_field('instagram_en','option')){ ?>
+						<a href="<?php the_field('instagram_en','option'); ?>" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+					<?php } ?>
+
+					<?php if(get_field('youtube_en','option')){ ?>
+						<a href="<?php the_field('youtube_en','option'); ?>" title="Youtube"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+					<?php } ?>
+				</div>
+
+			<?php }else{ ?>
+
+				<div class="regiao">						
+					<a href="<?php echo $url_idioma[0].'/en/'.add_query_arg(array(),$wp->request); ?>" class="" title="EN"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/en.png" alt="EN"></a>					
 				</div>
 
 				<div class="telefones">
@@ -217,6 +273,8 @@
 					<?php } ?>
 				</div>
 
+			<?php } ?>	
+
 			</div>
 		</section>
 
@@ -241,7 +299,7 @@
 						</li>
 						*/ ?>
 						<li class="">
-							<a href="<?php echo get_permalink(get_page_by_path('pacotes')); ?>" title="" class="">PACOTES</a>
+							<a href="<?php echo get_permalink(get_page_by_path('pacotes')); ?>" title="<?php if($idioma == 'en'){ echo 'PACKAGES'; }else{ echo 'PACOTES'; } ?>" class=""><?php if($idioma == 'en'){ echo 'PACKAGES'; }else{ echo 'PACOTES'; } ?></a>
 
 							<?php
 								$tax = 'categoria_pacotes';
@@ -264,10 +322,10 @@
 
 						</li>
 						<li class="">
-							<a href="<?php echo get_permalink(get_page_by_path('passagem-aerea')); ?>" title="" class="">PASSAGEM AÉREA</a>
+							<a href="<?php echo get_permalink(get_page_by_path('passagem-aerea')); ?>" title="<?php echo get_the_title(get_page_by_path('passagem-aerea')); ?>" class=""><?php echo get_the_title(get_page_by_path('passagem-aerea')); ?></a>
 						</li>
 						<li class="">
-							<a href="<?php echo get_home_url(); ?>/servicos" title="" class="">SERVIÇOS</a>
+							<a href="<?php echo get_home_url(); ?>/servicos" title="<?php if($idioma == 'en'){ echo 'SERVICES'; }else{ echo 'SERVIÇOS'; } ?>" class=""><?php if($idioma == 'en'){ echo 'SERVICES'; }else{ echo 'SERVIÇOS'; } ?></a>
 						</li>
 						<li class="">
 							<a href="<?php echo get_home_url(); ?>/blog" title="" class="">BLOG</a>
